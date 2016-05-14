@@ -7,17 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		832444E51CDF17860031CFE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832444E41CDF17860031CFE0 /* AppDelegate.swift */; };
 		832444E71CDF17860031CFE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 832444E61CDF17860031CFE0 /* Assets.xcassets */; };
 		832444EA1CDF17860031CFE0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832444E81CDF17860031CFE0 /* MainMenu.xib */; };
+		832444F81CDF2C290031CFE0 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832444F71CDF2C290031CFE0 /* EventMonitor.swift */; };
+		832444FA1CDF2C640031CFE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832444F91CDF2C640031CFE0 /* AppDelegate.swift */; };
+		832444FE1CDF2D5C0031CFE0 /* BonUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832444FD1CDF2D5C0031CFE0 /* BonUserDefaults.swift */; };
+		832445021CDF2DB80031CFE0 /* BIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832445001CDF2DB80031CFE0 /* BIT.swift */; };
+		832445031CDF2DB80031CFE0 /* BonNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832445011CDF2DB80031CFE0 /* BonNetwork.swift */; };
+		832445061CDF2FF30031CFE0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 832445051CDF2FF30031CFE0 /* Alamofire.framework */; };
+		8324450B1CDF31570031CFE0 /* BonDelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8324450A1CDF31570031CFE0 /* BonDelay.swift */; };
+		83A4B2C51CE75299000E83B4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4B2C41CE75299000E83B4 /* MainViewController.swift */; };
+		83A4B2C81CE752FD000E83B4 /* BonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4B2C61CE752FD000E83B4 /* BonViewController.swift */; };
+		83A4B2C91CE752FD000E83B4 /* BonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83A4B2C71CE752FD000E83B4 /* BonViewController.xib */; };
+		83A4B2CE1CE75720000E83B4 /* NSColor+Bon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4B2CD1CE75720000E83B4 /* NSColor+Bon.swift */; };
+		83A4B2D01CE758DE000E83B4 /* BonScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4B2CF1CE758DE000E83B4 /* BonScrollView.swift */; };
+		83A4B2D21CE759A2000E83B4 /* BonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4B2D11CE759A2000E83B4 /* BonCell.swift */; };
+		83A4B2D51CE76327000E83B4 /* BonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4B2D41CE76327000E83B4 /* BonButton.swift */; };
+		83A4B2D81CE7698D000E83B4 /* BonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4B2D71CE7698D000E83B4 /* BonItem.swift */; };
+		83A4B2DA1CE76C17000E83B4 /* BonLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4B2D91CE76C17000E83B4 /* BonLoginView.swift */; };
+		83A4B2DC1CE774FC000E83B4 /* SettingsMenuAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4B2DB1CE774FC000E83B4 /* SettingsMenuAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		832444E11CDF17860031CFE0 /* Bon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bon.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		832444E41CDF17860031CFE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		832444E61CDF17860031CFE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		832444E91CDF17860031CFE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		832444EB1CDF17860031CFE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		832444F71CDF2C290031CFE0 /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		832444F91CDF2C640031CFE0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		832444FD1CDF2D5C0031CFE0 /* BonUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonUserDefaults.swift; sourceTree = "<group>"; };
+		832445001CDF2DB80031CFE0 /* BIT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BIT.swift; sourceTree = "<group>"; };
+		832445011CDF2DB80031CFE0 /* BonNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonNetwork.swift; sourceTree = "<group>"; };
+		832445051CDF2FF30031CFE0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
+		8324450A1CDF31570031CFE0 /* BonDelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonDelay.swift; sourceTree = "<group>"; };
+		83A4B2C41CE75299000E83B4 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		83A4B2C61CE752FD000E83B4 /* BonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonViewController.swift; sourceTree = "<group>"; };
+		83A4B2C71CE752FD000E83B4 /* BonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BonViewController.xib; sourceTree = "<group>"; };
+		83A4B2CD1CE75720000E83B4 /* NSColor+Bon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Bon.swift"; sourceTree = "<group>"; };
+		83A4B2CF1CE758DE000E83B4 /* BonScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonScrollView.swift; sourceTree = "<group>"; };
+		83A4B2D11CE759A2000E83B4 /* BonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonCell.swift; sourceTree = "<group>"; };
+		83A4B2D41CE76327000E83B4 /* BonButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonButton.swift; sourceTree = "<group>"; };
+		83A4B2D71CE7698D000E83B4 /* BonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonItem.swift; sourceTree = "<group>"; };
+		83A4B2D91CE76C17000E83B4 /* BonLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonLoginView.swift; sourceTree = "<group>"; };
+		83A4B2DB1CE774FC000E83B4 /* SettingsMenuAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMenuAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				832445061CDF2FF30031CFE0 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,12 +83,85 @@
 		832444E31CDF17860031CFE0 /* Bon */ = {
 			isa = PBXGroup;
 			children = (
-				832444E41CDF17860031CFE0 /* AppDelegate.swift */,
+				832444F91CDF2C640031CFE0 /* AppDelegate.swift */,
+				832444FF1CDF2D630031CFE0 /* Helpers */,
+				832445041CDF2DBD0031CFE0 /* Services */,
+				83A4B2CC1CE756E6000E83B4 /* Extensions */,
+				83A4B2D31CE75D2F000E83B4 /* Views */,
+				832444FC1CDF2D350031CFE0 /* ViewControllers */,
 				832444E61CDF17860031CFE0 /* Assets.xcassets */,
+				83A4B2C41CE75299000E83B4 /* MainViewController.swift */,
 				832444E81CDF17860031CFE0 /* MainMenu.xib */,
-				832444EB1CDF17860031CFE0 /* Info.plist */,
+				832445071CDF300F0031CFE0 /* Supporting Files */,
+				832445081CDF30150031CFE0 /* Frameworks */,
 			);
 			path = Bon;
+			sourceTree = "<group>";
+		};
+		832444FC1CDF2D350031CFE0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				83A4B2C61CE752FD000E83B4 /* BonViewController.swift */,
+				83A4B2C71CE752FD000E83B4 /* BonViewController.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		832444FF1CDF2D630031CFE0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8324450A1CDF31570031CFE0 /* BonDelay.swift */,
+				832444F71CDF2C290031CFE0 /* EventMonitor.swift */,
+				83A4B2DB1CE774FC000E83B4 /* SettingsMenuAction.swift */,
+				832444FD1CDF2D5C0031CFE0 /* BonUserDefaults.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		832445041CDF2DBD0031CFE0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				832445001CDF2DB80031CFE0 /* BIT.swift */,
+				83A4B2D71CE7698D000E83B4 /* BonItem.swift */,
+				832445011CDF2DB80031CFE0 /* BonNetwork.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		832445071CDF300F0031CFE0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				832444EB1CDF17860031CFE0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		832445081CDF30150031CFE0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				832445051CDF2FF30031CFE0 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		83A4B2CC1CE756E6000E83B4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				83A4B2CD1CE75720000E83B4 /* NSColor+Bon.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		83A4B2D31CE75D2F000E83B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				83A4B2CF1CE758DE000E83B4 /* BonScrollView.swift */,
+				83A4B2D11CE759A2000E83B4 /* BonCell.swift */,
+				83A4B2D41CE76327000E83B4 /* BonButton.swift */,
+				83A4B2D91CE76C17000E83B4 /* BonLoginView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -68,6 +174,7 @@
 				832444DD1CDF17860031CFE0 /* Sources */,
 				832444DE1CDF17860031CFE0 /* Frameworks */,
 				832444DF1CDF17860031CFE0 /* Resources */,
+				832445091CDF305A0031CFE0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -118,17 +225,49 @@
 			files = (
 				832444E71CDF17860031CFE0 /* Assets.xcassets in Resources */,
 				832444EA1CDF17860031CFE0 /* MainMenu.xib in Resources */,
+				83A4B2C91CE752FD000E83B4 /* BonViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		832445091CDF305A0031CFE0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/Alamofire.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		832444DD1CDF17860031CFE0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				832444E51CDF17860031CFE0 /* AppDelegate.swift in Sources */,
+				8324450B1CDF31570031CFE0 /* BonDelay.swift in Sources */,
+				832444FA1CDF2C640031CFE0 /* AppDelegate.swift in Sources */,
+				83A4B2D21CE759A2000E83B4 /* BonCell.swift in Sources */,
+				83A4B2DA1CE76C17000E83B4 /* BonLoginView.swift in Sources */,
+				83A4B2C81CE752FD000E83B4 /* BonViewController.swift in Sources */,
+				832444FE1CDF2D5C0031CFE0 /* BonUserDefaults.swift in Sources */,
+				83A4B2D01CE758DE000E83B4 /* BonScrollView.swift in Sources */,
+				83A4B2D51CE76327000E83B4 /* BonButton.swift in Sources */,
+				83A4B2CE1CE75720000E83B4 /* NSColor+Bon.swift in Sources */,
+				83A4B2D81CE7698D000E83B4 /* BonItem.swift in Sources */,
+				832444F81CDF2C290031CFE0 /* EventMonitor.swift in Sources */,
+				83A4B2C51CE75299000E83B4 /* MainViewController.swift in Sources */,
+				83A4B2DC1CE774FC000E83B4 /* SettingsMenuAction.swift in Sources */,
+				832445021CDF2DB80031CFE0 /* BIT.swift in Sources */,
+				832445031CDF2DB80031CFE0 /* BonNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +372,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Bon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chriskuei.Bon;
@@ -245,6 +388,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Bon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chriskuei.Bon;
@@ -271,6 +418,7 @@
 				832444F01CDF17860031CFE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

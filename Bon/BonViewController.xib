@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="BonViewController" customModule="Bon" customModuleProvider="target">
+            <connections>
+                <outlet property="bonLoginView" destination="kmg-a3-AKd" id="clM-81-4dE"/>
+                <outlet property="loadingIndicator" destination="56N-LU-1yu" id="BQd-XE-DtE"/>
+                <outlet property="loginButton" destination="zOg-44-XJo" id="b7X-RY-4Id"/>
+                <outlet property="passwordTextField" destination="JU4-Rh-2ep" id="CPi-fq-TUP"/>
+                <outlet property="settingsButton" destination="qPS-nv-qLS" id="Z8I-Ol-SCJ"/>
+                <outlet property="usernameTextField" destination="bg3-0n-Dyq" id="aLG-If-1VL"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="345"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zkg-Cg-cf5" userLabel="Header View">
+                    <rect key="frame" x="0.0" y="309" width="300" height="36"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RkL-uG-2NR">
+                            <rect key="frame" x="128" y="7" width="44" height="23"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Bon" id="iFO-xx-bTE">
+                                <font key="font" size="13" name="Avenir-Book"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                </customView>
+                <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="75" horizontalPageScroll="10" verticalLineScroll="75" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sl4-oh-8ey" customClass="BonScrollView" customModule="Bon" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="79" width="300" height="233"/>
+                    <clipView key="contentView" ambiguous="YES" id="VOF-or-ak5">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="233"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" columnSelection="YES" multipleSelection="NO" rowHeight="75" viewBased="YES" id="FyE-cu-j26">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="233"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
+                                <color key="gridColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn editable="NO" width="300" minWidth="100" maxWidth="465" id="h6N-J8-lmS">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="IZQ-Ch-YjX">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        <prototypeCellViews>
+                                            <tableCellView identifier="BonCell" id="zAm-wQ-07a" customClass="BonCell" customModule="Bon" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n77-JS-46W">
+                                                        <rect key="frame" x="16" y="23" width="44" height="37"/>
+                                                        <imageCell key="cell" enabled="NO" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="icon-slack" id="0Hl-hd-ZdP"/>
+                                                    </imageView>
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="369" translatesAutoresizingMaskIntoConstraints="NO" id="3Pm-fz-CoX">
+                                                        <rect key="frame" x="81" y="38" width="218" height="17"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Name" usesSingleLineMode="YES" id="ljY-9S-Vl9">
+                                                            <font key="font" metaFont="systemSemibold" size="13"/>
+                                                            <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="369" translatesAutoresizingMaskIntoConstraints="NO" id="pgG-rF-6fN">
+                                                        <rect key="frame" x="81" y="11" width="218" height="17"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" truncatesLastVisibleLine="YES" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="left" title="Desc" usesSingleLineMode="YES" id="3nv-AR-HIH">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <connections>
+                                                    <outlet property="descLabel" destination="pgG-rF-6fN" id="hDr-j8-aio"/>
+                                                    <outlet property="typeImageView" destination="n77-JS-46W" id="a1u-2X-a8q"/>
+                                                    <outlet property="whoLabel" destination="3Pm-fz-CoX" id="LmB-zv-ALC"/>
+                                                </connections>
+                                            </tableCellView>
+                                        </prototypeCellViews>
+                                    </tableColumn>
+                                </tableColumns>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="uZt-Ua-CHO">
+                        <rect key="frame" x="-100" y="-100" width="430" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="Pif-gN-fBn">
+                        <rect key="frame" x="284" y="0.0" width="16" height="233"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kmg-a3-AKd" userLabel="Login View" customClass="BonLoginView" customModule="Bon" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="34" width="300" height="311"/>
+                    <subviews>
+                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zOg-44-XJo" customClass="BonButton" customModule="Bon" customModuleProvider="target">
+                            <rect key="frame" x="140" y="74" width="20" height="20"/>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_status" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="gUm-T1-hoo">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onLoginButton:" target="-2" id="Foq-kO-Aky"/>
+                            </connections>
+                        </button>
+                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bg3-0n-Dyq">
+                            <rect key="frame" x="102" y="187" width="96" height="22"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="CVa-q4-vyn">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JU4-Rh-2ep">
+                            <rect key="frame" x="102" y="138" width="96" height="22"/>
+                            <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="9mN-tY-ayJ">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <allowedInputSourceLocales>
+                                    <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                </allowedInputSourceLocales>
+                            </secureTextFieldCell>
+                        </secureTextField>
+                        <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="56N-LU-1yu">
+                            <rect key="frame" x="142" y="108" width="16" height="16"/>
+                        </progressIndicator>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="haq-Hv-Kse">
+                            <rect key="frame" x="101" y="232" width="98" height="17"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="客官，请稍等..." id="AvQ-d1-TL4">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <connections>
+                        <outlet property="alertLabel" destination="haq-Hv-Kse" id="HMq-6I-K9y"/>
+                        <outlet property="loadingIndicator" destination="56N-LU-1yu" id="4pM-2k-Mdf"/>
+                        <outlet property="loginButton" destination="zOg-44-XJo" id="34w-II-22b"/>
+                        <outlet property="passwordTextField" destination="JU4-Rh-2ep" id="zbc-6z-NZl"/>
+                        <outlet property="usernameTextField" destination="bg3-0n-Dyq" id="DBT-QW-lkI"/>
+                    </connections>
+                </customView>
+                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UVq-hR-ncc" userLabel="Footer View">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="36"/>
+                    <subviews>
+                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qPS-nv-qLS" userLabel="Settings Button" customClass="BonButton" customModule="Bon" customModuleProvider="target">
+                            <rect key="frame" x="274" y="8" width="20" height="20"/>
+                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_status" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="bRN-aR-3ps">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onSettingsButton:" target="-2" id="tHg-5O-k2y"/>
+                            </connections>
+                        </button>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2s3-b7-Kgb">
+                            <rect key="frame" x="12" y="7" width="44" height="23"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Bon" id="5UB-0a-Zqc">
+                                <font key="font" size="13" name="Avenir-Book"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                </customView>
+            </subviews>
+            <point key="canvasLocation" x="258" y="302.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="icon-slack" width="128" height="128"/>
+        <image name="icon_status" width="16" height="16"/>
+    </resources>
+</document>
