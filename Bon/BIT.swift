@@ -8,14 +8,14 @@
 
 import Foundation
 
-//public enum LoginState: String, CustomStringConvertible {
-//    case ONLINE = "ONLINE"
-//    case OFFLINE = "OFFINE"
-//    
-//    public var description: String {
-//        return self.rawValue
-//    }
-//}
+public enum LoginState: String, CustomStringConvertible {
+    case Online = "Online"
+    case Offline = "Offline"
+    
+    public var description: String {
+        return self.rawValue
+    }
+}
 
 class BIT {
     

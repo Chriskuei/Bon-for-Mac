@@ -10,15 +10,13 @@ import Cocoa
 
 class BonViewController: NSViewController {
     
+    @IBOutlet weak var infoTableView: NSTableView!
     @IBOutlet weak var usernameTextField: NSTextField!
     @IBOutlet weak var passwordTextField: NSSecureTextField!
     
     @IBOutlet weak var bonLoginView: BonLoginView!
-    @IBOutlet weak var loginButton: NSButton!
-    
-    @IBOutlet weak var loadingIndicator: NSProgressIndicator!
-    
     @IBOutlet weak var settingsButton: BonButton!
+    
     var username: String = ""{
         didSet {
             usernameTextField.stringValue = username
@@ -32,33 +30,39 @@ class BonViewController: NSViewController {
         }
     }
     
+    var seconds: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.wantsLayer = true
-        
-        view.layer?.backgroundColor = NSColor.grayColor().CGColor
+        view.layer?.backgroundColor = NSColor.bonHighlightColor().CGColor
         
         username = BonUserDefaults.username
         password = BonUserDefaults.password
-    }
-    
-    func showPopover() {
-        //popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSRectEdge.MinY)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(getOnlineInfo), name: "GetOnlineInfo", object: nil)
+        
+        switch loginState {
+        case .Online:
+            getOnlineInfo()
+            bonLoginView.hidden = true
+        default:
+            break;
+        }
+        
     }
     
     @IBAction func onLoginButton(sender: AnyObject) {
-        loadingIndicator.hidden = false
-        loadingIndicator.startAnimation(sender)
         
-        self.login()
+        bonLoginView.show(.Loading)
+        login()
     }
     
     @IBAction func onLogoutButton(sender: AnyObject) {
         
-        delay(2.0) {
-            self.forceLogout()
-        }
+        bonLoginView.show(.Loading)
+        forceLogout()
         
     }
     
@@ -66,12 +70,6 @@ class BonViewController: NSViewController {
         SettingsMenuAction.makeSettingsMenu(sender)
     }
 
-    //    @IBAction func onHelpCenterButton(sender: AnyObject) {
-    //        let url : NSURL = NSURL(string: BIT.URL.HelpCenter)!
-    //        if NSApplication.sharedApplication().canOpenURL(url) {
-    //            NSApplication.sharedApplication().openURL(url)
-    //        }
-    //    }
     
     // MARK: - Network operation
     
@@ -95,16 +93,28 @@ class BonViewController: NSViewController {
         BonNetwork.post(parameters, success: { (value) in
             print(value)
             if value.containsString("login_ok,") {
-                self.getOnlineInfo()
+                
+                delay(0.5) {
+                    self.getOnlineInfo()
+                }
                 delay(1) {
-                    self.loadingIndicator.stopAnimation(nil)
-                    self.bonLoginView.hidden = true
+                    self.bonLoginView.show(.LoginSuccess)
+                }
+            } else if value.containsString("Password is error.") {
+                delay(1) {
+                    self.bonLoginView.show(.PasswordError)
+                }
+            } else if value.containsString("User not found.") {
+                delay(1) {
+                    self.bonLoginView.show(.UsernameError)
                 }
             } else {
-                self.loadingIndicator.stopAnimation(nil)
+                delay(1) {
+                    self.bonLoginView.show(.Error)
+                }
             }
         }) { (error) in
-            self.loadingIndicator.stopAnimating(nil)
+            self.bonLoginView.show(.Timeout)
         }
     }
     
@@ -117,12 +127,13 @@ class BonViewController: NSViewController {
             "action": "auto_logout"
         ]
         BonNetwork.post(parameters) { (value) in
-            //            BonAlert.alert(title: "Logout Success", message: "Aha! You are offline now.", dismissTitle: "OK", inViewController: self, withDismissAction: nil)
+            self.bonLoginView.hidden = false
         }
     }
     
     
-    // MARK : - forcelogout
+    // TODO : - forcelogout
+    //Parse response
     
     func forceLogout() {
         username = usernameTextField.stringValue
@@ -138,7 +149,7 @@ class BonViewController: NSViewController {
         
         BonNetwork.post(parameters) { (value) in
             print(value)
-            self.loadingIndicator.stopAnimation(nil)
+            self.bonLoginView.show(.LogoutSuccess)
         }
     }
     
@@ -151,75 +162,64 @@ class BonViewController: NSViewController {
         ]
         
         BonNetwork.post(parameters) { (value) in
-            print(value)
-            let info = value.componentsSeparatedByString(",")
+            if(value == "not_online") {
+                loginState = .Offline
+            } else {
+                loginState = .Online
+                print(value)
+                let info = value.componentsSeparatedByString(",")
+                self.seconds = Int(info[1])!
+                
+                self.itemsInfo = BonFormat.formatOnlineInfo(self.username, info: info)
+                
+                self.updateItems()
+            }
             
-            let usedData = Double(info[0])!
-            BonUserDefaults.usedData = usedData
-            
-            let seconds = Int(info[1])!
-            BonUserDefaults.seconds = seconds
-            
-            let balance = Double(info[2])!
-            BonUserDefaults.balance = balance
-            
-            let key = ["connectionTime", "inFlow", "outFlow", "usableFlow", "unknown1", "unknown2", "unknown3", "username"]
-            
-            let userInformation: [String: String] = {
-                var dict = Dictionary<String, String>()
-                for index in 0...7 {
-                    dict[key[index]] = info[index]
-                }
-                return dict
-            }()
-
         }
     }
     
-    var items = [AnyObject]() // 数据列表，包括
-    let format = NSDateFormatter() // 格式化更新时间
+    var items = [BonItem]()
+    var itemsInfo = [String]()
+    let itemsName = ["username", "used Data", "used Time", "balance", "daily Available Data"]
     
+    func updateItems() {
+        self.items = []
+        for index in 0...4 {
+            let item = BonItem(name: itemsName[index], info: itemsInfo[index])
+            items.append(item)
+        }
+        infoTableView.reloadData()
+    }
+    
+    func updateTime() {
+        seconds = seconds + 1
+        //        let date = NSDate()
+        //        let formatter = NSDateFormatter()
+        //        formatter.timeStyle = .MediumStyle
+        //        timeLabel.text = formatter.stringFromDate(date)
+    }
+
+    func quit() {
+        NSApplication.sharedApplication().terminate(self)
+    }
+
     
 }
 
-extension BonViewController {
-    
-}
+
 extension BonViewController: NSTableViewDataSource {
     
     func numberOfRowsInTableView(aTableView: NSTableView) -> Int {
-        return 0
+        return items.count
     }
-    
-//    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-//        loadOlderIfNeeded(row) // 判断是否需要加载更早的数据
-//        return BonSectionCell.view(tableView, owner: self, subject: items[row]) ?? GankItemCell.view(tableView, owner: self, subject: items[row])
-//    }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let cellView = tableView.makeViewWithIdentifier(tableColumn!.identifier, owner: tableView) as! BonCell
-        //cellView.configureData(self.model[row])
-        return cellView
-    }
-    
-    private func loadOlderIfNeeded(row: Int) {
-        if items.count - row == 1 { // ph设置的值是15，我这里设置的是下拉到底时才触发加载新数据，节省流量
-            NSNotificationCenter.defaultCenter().postNotificationName("Reload", object: nil)
-        }
+        return BonCell.view(tableView, owner: self, subject: items[row])
     }
     
 }
 
-// 列表的动作代理
 extension BonViewController: NSTableViewDelegate {
-    
-    func tableView(tableView: NSTableView, isGroupRow row: Int) -> Bool {
-        return (items[row] as? String) != nil // 显示日期的是GroupRow
-    }
-    
-    func tableView(tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        return (items[row] as? String) != nil ? 45 : tableView.rowHeight // GroupRow高度是45
-    }
     
     func tableView(tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
         return true

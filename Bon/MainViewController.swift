@@ -14,11 +14,12 @@ class MainViewController: NSViewController {
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2)
     let popover = NSPopover()
     var eventMonitor: EventMonitor?
+    var refreshTimer: NSTimer?
     
     override func awakeFromNib() {
         if let button = statusItem.button {
             let icon = NSImage(named: "icon_status")
-            //icon?.template = false
+            icon?.template = false
             button.image = icon
             button.action = #selector(self.togglePopover(_:))
         }
@@ -34,6 +35,14 @@ class MainViewController: NSViewController {
             }
         }
         eventMonitor?.start()
+        
+        BonNetwork.updateLoginState()
+        refreshTimer = NSTimer.every(5.minutes) {
+            switch loginState {
+            case .Online: NSNotificationCenter.defaultCenter().postNotificationName("GetOnlineInfo", object: nil)
+            case .Offline: break
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -54,7 +63,6 @@ class MainViewController: NSViewController {
         if let button = statusItem.button {
             popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSRectEdge.MinY)
         }
-        NSNotificationCenter.defaultCenter().postNotificationName("Reload", object: nil)
         
         eventMonitor?.start()
     }
@@ -64,7 +72,20 @@ class MainViewController: NSViewController {
         eventMonitor?.stop()
     }
     
+    func openGithub() {
+        let path = "https://github.com/Chriskuei"
+        let url = NSURL(string: path)!
+        NSWorkspace.sharedWorkspace().openURL(url)
+    }
+    
+    func openWeibo() {
+        let path = "https://weibo.com/chenjiangui"
+        let url = NSURL(string: path)!
+        NSWorkspace.sharedWorkspace().openURL(url)
+    }
+    
     func quit() {
         NSApplication.sharedApplication().terminate(self)
     }
+
 }

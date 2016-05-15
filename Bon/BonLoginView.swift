@@ -8,8 +8,14 @@
 
 import Cocoa
 
-enum LoginState {
-    case usernameError, passwordError, Success, Error
+enum LogMessage {
+    case Loading
+    case UsernameError
+    case PasswordError
+    case Timeout
+    case Error
+    case LoginSuccess
+    case LogoutSuccess
 }
 
 class BonLoginView: NSView {
@@ -17,45 +23,83 @@ class BonLoginView: NSView {
     @IBOutlet weak var usernameTextField: NSTextField!
     @IBOutlet weak var passwordTextField: NSSecureTextField!
     
-    @IBOutlet weak var loginButton: NSButton!
-    @IBOutlet weak var loadingIndicator: NSProgressIndicator! // 进度圈
-    @IBOutlet weak var alertLabel: NSTextField! // 提示信息
+    @IBOutlet weak var loadingIndicator: NSProgressIndicator!
+    @IBOutlet weak var alertLabel: NSTextField!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        loadingIndicator.hidden = true
+        alertLabel.hidden = true
+        
         wantsLayer = true
         layer?.backgroundColor = NSColor.whiteColor().CGColor
     }
     
-    func showState(loginState: LoginState) {
-        switch loginState {
-        case .usernameError:
+    func show(logMessage: LogMessage) {
+        
+        switch logMessage {
+        case .Loading:
             hidden = false
             loadingIndicator.hidden = false
             loadingIndicator.startAnimation(nil)
-            alertLabel.stringValue = "客官，请稍等..."
-            //currentState = .Loading
             
-        case .passwordError:
+        case .UsernameError:
             hidden = false
             loadingIndicator.hidden = true
             loadingIndicator.stopAnimation(nil)
-            alertLabel.stringValue = "客官，出错啦!!!"
-            //currentState = .Error
+            alertLabel.hidden = false
+            alertLabel.stringValue = "User not found."
+            delay(2) {
+                self.alertLabel.hidden = true;
+            }
+            
+        case .PasswordError:
+            hidden = false
+            loadingIndicator.hidden = true
+            loadingIndicator.stopAnimation(nil)
+            alertLabel.hidden = false
+            alertLabel.stringValue = "Password is incorrect."
+            delay(2) {
+                self.alertLabel.hidden = true;
+            }
+            
+        case .Timeout:
+            hidden = false
+            loadingIndicator.hidden = true
+            loadingIndicator.stopAnimation(nil)
+            alertLabel.hidden = false
+            alertLabel.stringValue = "Time out."
+            delay(2) {
+                self.alertLabel.hidden = true;
+            }
+
             
         case .Error:
             hidden = false
             loadingIndicator.hidden = true
             loadingIndicator.stopAnimation(nil)
-            alertLabel.stringValue = "客官，没货啦..."
-            //currentState = .Empty
+            alertLabel.hidden = false
+            alertLabel.stringValue = "Login error."
+            delay(2) {
+                self.alertLabel.hidden = true;
+            }
             
-        case .Success:
+        case .LoginSuccess:
             hidden = true
+            loadingIndicator.hidden = true
             loadingIndicator.stopAnimation(nil)
-            //currentState = .Idle
+            
+        case .LogoutSuccess:
+            hidden = false
+            loadingIndicator.hidden = true
+            loadingIndicator.stopAnimation(nil)
+            alertLabel.hidden = false
+            alertLabel.stringValue = "Logout ok."
+            delay(2) {
+                self.alertLabel.hidden = true;
+            }
         }
     }
     

@@ -12,11 +12,11 @@ import Cocoa
 
 class BonCell: NSTableCellView {
     
-    @IBOutlet weak var typeImageView: NSImageView! // 干货类型图片
-    @IBOutlet weak var whoLabel: NSTextField! // 干货推荐人
-    @IBOutlet weak var descLabel: NSTextField! // 干货描述
+    @IBOutlet weak var typeImageView: NSImageView!
+    @IBOutlet weak var nameLabel: NSTextField!
+    @IBOutlet weak var infoLabel: NSTextField!
     
-    private var item: BonItem? // 干货
+    private var item: BonItem?
     
     private let cursor = NSCursor.pointingHandCursor()
     private var trackingArea: NSTrackingArea?
@@ -72,17 +72,15 @@ class BonCell: NSTableCellView {
     }
     
     private func updateUI() {
-//        guard let item = item else {
-//            return
-//        }
+        guard let item = item else {
+            return
+        }
         
-//        layer?.backgroundColor = mouseInside ? NSColor.gankHighlightColor().CGColor : NSColor.gankWhiteColor().CGColor
-//        
-//        seenView.hidden = true
-//        
-//        whoLabel.stringValue = item.textWho
-//        descLabel.stringValue = item.textDesc
-//        typeImageView.image = NSImage(named: item.imageType)
+        layer?.backgroundColor = mouseInside ? NSColor.bonHighlightColor().CGColor : NSColor.bonWhiteColor().CGColor
+        
+        nameLabel.stringValue = item.nameText
+        infoLabel.stringValue = item.infoText
+        //typeImageView.image = NSImage(named: item.imageType)
     }
     
     private func createTrackingAreaIfNeeded() {

@@ -128,19 +128,13 @@ class BonNetwork: NSObject {
      *   success : Request success callback function
      */
     
-    static func logout(parameters: [String : AnyObject]?, success: (value : String) -> Void) {
+    func logout() {
         
-        Alamofire.request(.POST, BIT.URL.DoLogoutURL, parameters: parameters)
-            .responseString { response in
-                switch response.result {
-                case .Success(let value):
-                    success(value: value)
-                    
-                case .Failure(let error):
-                    print("Request failed with error: \(error)")
-                }
+        let parameters = [
+            "action": "auto_logout"
+        ]
+        BonNetwork.post(parameters) { (value) in
         }
-        
     }
     
     // FIXME: It doesn't work well
@@ -197,19 +191,34 @@ class BonNetwork: NSObject {
      *   success : Request success callback function
      */
     
-    static func getLoginState(success :(value : String) -> Void) {
-        
-        Alamofire.request(.POST, BIT.URL.RadUserInfoURL)
-            .responseString { response in
-                switch response.result {
-                case .Success(let value):
-                    success(value: value)
-                    
-                case .Failure(let error):
-                    print("Request failed with error: \(error)")
-                }
-                
-        }
-    }
     
+    static func getOnlineInfo(success: (value : String) -> Void) {
+        
+        let parameters = [
+            "action": "get_online_info"
+        ]
+        
+        post(parameters) { (value) in
+            success(value: value)
+        }
+
+    }
+
+    
+    static func updateLoginState() {
+        
+        let parameters = [
+            "action": "get_online_info"
+        ]
+        
+        post(parameters) { (value) in
+            if(value == "not_online") {
+                loginState = .Offline
+            } else {
+                loginState = .Online
+            }
+            
+        }
+
+    }
 }

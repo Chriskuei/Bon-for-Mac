@@ -10,9 +10,29 @@ import Cocoa
 
 extension NSColor {
     class func bonTintColor() -> NSColor {
-        return NSColor(red: 148/255.0, green: 141/255.0, blue: 157/255.0, alpha: 1.0)
+        return NSColor(calibratedRed: 148 / 255.0, green: 141 / 255.0, blue: 157 / 255.0, alpha: 1.0)
     }
     
+    class func bonWhiteColor() -> NSColor {
+        return NSColor.whiteColor()
+    }
+    
+    class func bonHighlightColor() -> NSColor {
+        return NSColor(calibratedRed: 249 / 255.0, green: 249 / 255.0, blue: 249 / 255.0, alpha: 1.0)
+    }
+    
+    class func bonOrangeColor() -> NSColor {
+        return NSColor(calibratedRed: 228 / 255.0, green: 81 / 255.0, blue: 39 / 255.0, alpha: 1.0)
+    }
+    
+    class func bonGrayColor() -> NSColor {
+        return NSColor(calibratedRed: 153 / 255.0, green: 153 / 255.0, blue: 153 / 255.0, alpha: 1.0)
+    }
+    
+    class func gankLightGrayColor() -> NSColor {
+        return NSColor(calibratedRed: 204 / 255.0, green: 204 / 255.0, blue: 208 / 255.0, alpha: 1.0)
+    }
+
     // Inverse color
     var bon_inverseColor: NSColor {
         

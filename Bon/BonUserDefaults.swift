@@ -8,13 +8,12 @@
 
 import Foundation
 
-let loginStateKey = "loginState"
+var loginState: LoginState = .Offline
 
 let usernameKey = "username"
 let passwordKey = "password"
 let balanceKey = "balance"
 let usedDataKey = "usedData"
-let IPKey = "IP"
 let secondsKey = "seconds"
 
 //Get balance success with string: {
@@ -50,14 +49,6 @@ let secondsKey = "seconds"
 class BonUserDefaults {
     
     static let defaults = NSUserDefaults.standardUserDefaults()
-    
-//    static var isLogined: Bool {
-//        if loginState == LoginState.ONLINE.description {
-//            return true
-//        } else {
-//            return false
-//        }
-//    }
     
     class func saveUserDefaults(username: String, password: String, uid: String) {
         
@@ -104,39 +95,12 @@ class BonUserDefaults {
         }
     }
     
-//    static var loginState: String = {
-//        let savedLoginState = defaults.stringForKey(loginStateKey)
-//        if let loginState = savedLoginState {
-//            return loginState
-//        } else {
-//            return LoginState.ONLINE.description
-//        }
-//        }() {
-//        didSet {
-//            defaults.setValue(loginState, forKey: loginStateKey)
-//            defaults.synchronize()
-//        }
-//    }
-    
     static var balance: Double = {
         let balance = defaults.doubleForKey(balanceKey)
         return balance
         }() {
         didSet {
             defaults.setValue(balance, forKey: balanceKey)
-            defaults.synchronize()
-        }
-    }
-        
-    static var IP: String = {
-        let savedUserIP = defaults.stringForKey(IPKey)
-        if let userIP = savedUserIP {
-            return userIP
-        }
-        return ""
-        }() {
-        didSet {
-            defaults.setValue(IP, forKey: IPKey)
             defaults.synchronize()
         }
     }
