@@ -139,18 +139,29 @@ class BonViewController: NSViewController {
         username = usernameTextField.stringValue
         password = passwordTextField.stringValue
         
+        BonNetwork.updateLoginState()
         
-        let parameters = [
-            "action": "logout",
-            "username": username,
-            "password": password,
-            "ajax": "1"
-        ]
-        
-        BonNetwork.post(parameters) { (value) in
-            print(value)
-            self.bonLoginView.show(.LogoutSuccess)
+        switch loginState {
+        case .Offline:
+            delay(1) {
+                self.bonLoginView.showLoginState(.Offline)
+            }
+        case .Online:
+            let parameters = [
+                "action": "logout",
+                "username": username,
+                "password": password,
+                "ajax": "1"
+            ]
+            
+            BonNetwork.post(parameters) { (value) in
+                print(value)
+                delay(1) {
+                    self.bonLoginView.show(.LogoutSuccess)
+                }
+            }
         }
+
     }
     
     // MARK : - get online info

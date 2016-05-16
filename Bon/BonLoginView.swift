@@ -103,4 +103,28 @@ class BonLoginView: NSView {
         }
     }
     
+    func showLoginState(loginState: LoginState) {
+        switch loginState {
+        case .Online:
+            hidden = false
+            loadingIndicator.hidden = true
+            loadingIndicator.stopAnimation(nil)
+            alertLabel.hidden = false
+            alertLabel.stringValue = "You are online now."
+            delay(2) {
+                self.alertLabel.hidden = true;
+            }
+        case .Offline:
+            hidden = false
+            loadingIndicator.hidden = true
+            loadingIndicator.stopAnimation(nil)
+            alertLabel.hidden = false
+            alertLabel.stringValue = "You are offline."
+            delay(2) {
+                self.alertLabel.hidden = true;
+            }
+        }
+        
+    }
+    
 }
