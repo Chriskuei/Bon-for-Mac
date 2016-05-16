@@ -37,9 +37,9 @@ class BonFormat {
         }
     }
     
-    class func formatOnlineInfo(username: String, info: [String]) -> [String] {
+    class func formatOnlineInfo(info: [String]) -> [String] {
         
-        let usernameInfo = "\(username)"
+        let usernameInfo = info[4]
         let usedData = Double(info[0])!
         let usedDataInfo = BonFormat.formatData(usedData)
         

@@ -170,7 +170,7 @@ class BonViewController: NSViewController {
                 let info = value.componentsSeparatedByString(",")
                 self.seconds = Int(info[1])!
                 
-                self.itemsInfo = BonFormat.formatOnlineInfo(self.username, info: info)
+                self.itemsInfo = BonFormat.formatOnlineInfo(info)
                 
                 self.updateItems()
             }

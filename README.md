@@ -1,6 +1,6 @@
 # Bon for Mac:
 
-> Elegant Network Client for BIT
+> Elegant Network Client for [BIT](http://www.bit.edu.cn)
 
 ## Features
 

@@ -11,6 +11,7 @@
 		832058591CE80F7900BC0FEF /* SwiftyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832058581CE80F7900BC0FEF /* SwiftyTimer.swift */; };
 		8320585B1CE8171100BC0FEF /* BonConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8320585A1CE8171100BC0FEF /* BonConfig.swift */; };
 		8320585E1CE81D1B00BC0FEF /* BonFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8320585D1CE81D1B00BC0FEF /* BonFormat.swift */; };
+		832058601CE8C6D700BC0FEF /* LaunchStarter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8320585F1CE8C6D700BC0FEF /* LaunchStarter.swift */; };
 		832444E71CDF17860031CFE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 832444E61CDF17860031CFE0 /* Assets.xcassets */; };
 		832444EA1CDF17860031CFE0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 832444E81CDF17860031CFE0 /* MainMenu.xib */; };
 		832444F81CDF2C290031CFE0 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832444F71CDF2C290031CFE0 /* EventMonitor.swift */; };
@@ -37,6 +38,7 @@
 		832058581CE80F7900BC0FEF /* SwiftyTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyTimer.swift; sourceTree = "<group>"; };
 		8320585A1CE8171100BC0FEF /* BonConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonConfig.swift; sourceTree = "<group>"; };
 		8320585D1CE81D1B00BC0FEF /* BonFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonFormat.swift; sourceTree = "<group>"; };
+		8320585F1CE8C6D700BC0FEF /* LaunchStarter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchStarter.swift; sourceTree = "<group>"; };
 		832444E11CDF17860031CFE0 /* Bon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		832444E61CDF17860031CFE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		832444E91CDF17860031CFE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				832444F71CDF2C290031CFE0 /* EventMonitor.swift */,
 				83A4B2DB1CE774FC000E83B4 /* SettingsMenuAction.swift */,
 				832444FD1CDF2D5C0031CFE0 /* BonUserDefaults.swift */,
+				8320585F1CE8C6D700BC0FEF /* LaunchStarter.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				832444FA1CDF2C640031CFE0 /* AppDelegate.swift in Sources */,
 				83A4B2D21CE759A2000E83B4 /* BonCell.swift in Sources */,
 				83A4B2DA1CE76C17000E83B4 /* BonLoginView.swift in Sources */,
+				832058601CE8C6D700BC0FEF /* LaunchStarter.swift in Sources */,
 				83A4B2C81CE752FD000E83B4 /* BonViewController.swift in Sources */,
 				832444FE1CDF2D5C0031CFE0 /* BonUserDefaults.swift in Sources */,
 				832058591CE80F7900BC0FEF /* SwiftyTimer.swift in Sources */,
