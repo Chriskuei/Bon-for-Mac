@@ -16,36 +16,6 @@ let balanceKey = "balance"
 let usedDataKey = "usedData"
 let secondsKey = "seconds"
 
-//Get balance success with string: {
-//    "buy_mbytes" = "0.00";
-//    "buy_minutes" = "<null>";
-//    charge = "10.00";
-//    client = WEB;
-//    fid = 1304;
-//    "flux_long" = "9.50G";
-//    "flux_long1" = B;
-//    "flux_long6" = B;
-//    "free_in_bytes" = 1B;
-//    "free_out_bytes" = 0B;
-//    ipv = 4;
-//    limit = 0;
-//    "month_fee" = "10.00";
-//    "remain_fee" = "1.53";
-//    "remain_flux" = "2,030.82M";
-//    "remain_timelong" = "<null>";
-//    speed = 0;
-//    "time_long" = 0;
-//    "time_long1" = 0;
-//    "time_long6" = 0;
-//    uid = 44064;
-//    "user_balance" = "11.53";
-//    "user_in_bytes" = "22.98KB";
-//    "user_ip" = "10.194.182.53";
-//    "user_login_name" = 1120141755;
-//    "user_login_time" = "2016-04-19 18:27:22";
-//    "user_out_bytes" = "25.10KB";
-//}
-
 class BonUserDefaults {
     
     static let defaults = NSUserDefaults.standardUserDefaults()

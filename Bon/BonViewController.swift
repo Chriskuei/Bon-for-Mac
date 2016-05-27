@@ -216,21 +216,10 @@ class BonViewController: NSViewController {
         infoTableView.reloadData()
     }
     
-    func updateTime() {
-        seconds = seconds + 1
-        //        let date = NSDate()
-        //        let formatter = NSDateFormatter()
-        //        formatter.timeStyle = .MediumStyle
-        //        timeLabel.text = formatter.stringFromDate(date)
-    }
-
-    func quit() {
-        NSApplication.sharedApplication().terminate(self)
-    }
-
-    
 }
 
+
+// MARK: - Table view
 
 extension BonViewController: NSTableViewDataSource {
     

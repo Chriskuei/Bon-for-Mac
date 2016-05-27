@@ -1,6 +1,11 @@
 # Bon for Mac:
 
-> Elegant Network Client for [BIT](http://www.bit.edu.cn)
+> The elegant network client for [BIT](http://www.bit.edu.cn)
+
+## Screenshot
+
+![img](Image/Login.png)
+![img](Image/Info.png)
 
 ## Features
 
@@ -10,10 +15,17 @@
 - [x] User balance
 - [x] Predict daily available data in the rest of current month
 
-## Build Environment
+## Todo
 
-- Mac OS X 10.11.5 / Swift 2.2
+- [ ] Pull to refresh
+- [ ] Support self service
+- [ ] Start on Mac star up
+
+## Requirements
+
+- Swift 2.2
 - Xcode 7.3
+- OS X 10.11
 
 ## FAQ
 
@@ -21,7 +33,19 @@
 
 Bon stands for BIT Online, a elegant network client for BIT.
 
-----
+---
+
+## Acknowledgements
+
+- [Alamofire](https://github.com/Alamofire/Alamofire)
+- [Gank-for-Mac](https://github.com/hujiaweibujidao/Gank-for-Mac)
+
+## Contribution
+
+- If you need help or you'd like to ask a general question, open an issue.
+- If you found a bug, open an issue.
+- If you have a feature request, open an issue.
+- If you want to contribute, submit a pull request.
 
 ## Credits
 
@@ -29,4 +53,4 @@ Bon is owned and maintained by [Chriskuei](http://github.com/chriskuei). You can
 
 ## License
 
-Bon is released under the MIT license. See LICENSE for details.
+Bon is released under the MIT license. See [LICENSE](LICENSE) for details.

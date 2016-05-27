@@ -13,7 +13,7 @@ class BonCell: NSTableCellView {
     @IBOutlet weak var typeImageView: NSImageView!
     @IBOutlet weak var nameLabel: NSTextField!
     @IBOutlet weak var infoLabel: NSTextField!
-    @IBOutlet weak var circleView: NSView!
+    //@IBOutlet weak var circleView: NSView!
     
     private let squareWithCircleView: SquareWithCircleView = SquareWithCircleView(frame: CGRectZero)
     
@@ -82,8 +82,8 @@ class BonCell: NSTableCellView {
         infoLabel.stringValue = item.infoText
         //circleView.layer?.backgroundColor = NSColor.bonTintColor().CGColor
         
-        circleView.addSubview(squareWithCircleView)
-        squareWithCircleView.frame = circleView.bounds
+        //circleView.addSubview(squareWithCircleView)
+        //squareWithCircleView.frame = circleView.bounds
         //squareWithCircleView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
         //typeImageView.image = NSImage(named: item.imageType)
@@ -119,8 +119,8 @@ class SquareWithCircleView: NSView{
     {
         let circleFillColor = NSColor.bonTintColor()
         let circleRect = NSMakeRect(dirtyRect.size.width/4, dirtyRect.size.height/4, dirtyRect.size.width/2, dirtyRect.size.height/2)
-        let cPath: NSBezierPath = NSBezierPath(ovalInRect: circleRect)
+        let path: NSBezierPath = NSBezierPath(ovalInRect: circleRect)
         circleFillColor.set()
-        cPath.fill()
+        path.fill()
     }
 }

@@ -65,7 +65,7 @@
                                                             <constraint firstAttribute="height" constant="17" id="dX2-7t-05d"/>
                                                         </constraints>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Name" usesSingleLineMode="YES" id="ljY-9S-Vl9">
-                                                            <font key="font" metaFont="systemSemibold" size="13"/>
+                                                            <font key="font" size="13" name="AvenirNext-DemiBold"/>
                                                             <color key="textColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
@@ -78,28 +78,20 @@
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                     </textField>
-                                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="w7r-bt-vdZ">
-                                                        <rect key="frame" x="200" y="16" width="30" height="30"/>
-                                                    </customView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="3Pm-fz-CoX" firstAttribute="leading" secondItem="n77-JS-46W" secondAttribute="trailing" constant="15" id="9bH-a3-MTA"/>
-                                                    <constraint firstItem="w7r-bt-vdZ" firstAttribute="top" secondItem="n77-JS-46W" secondAttribute="top" id="EEK-Pd-ewo"/>
-                                                    <constraint firstItem="w7r-bt-vdZ" firstAttribute="bottom" secondItem="n77-JS-46W" secondAttribute="bottom" id="Eh2-sA-ZLt"/>
                                                     <constraint firstItem="3Pm-fz-CoX" firstAttribute="top" secondItem="zAm-wQ-07a" secondAttribute="top" constant="10" id="F4k-pu-dfW"/>
                                                     <constraint firstItem="pgG-rF-6fN" firstAttribute="top" secondItem="3Pm-fz-CoX" secondAttribute="bottom" constant="8" id="H8f-Cr-rgf"/>
                                                     <constraint firstAttribute="trailing" secondItem="3Pm-fz-CoX" secondAttribute="trailing" constant="3" id="HDj-4K-Z1U"/>
                                                     <constraint firstItem="pgG-rF-6fN" firstAttribute="width" secondItem="3Pm-fz-CoX" secondAttribute="width" id="Nh0-fs-ELf"/>
                                                     <constraint firstItem="pgG-rF-6fN" firstAttribute="height" secondItem="3Pm-fz-CoX" secondAttribute="height" id="Qgj-bw-fxn"/>
                                                     <constraint firstItem="n77-JS-46W" firstAttribute="leading" secondItem="zAm-wQ-07a" secondAttribute="leading" constant="19" id="cH4-fq-ob2"/>
-                                                    <constraint firstItem="w7r-bt-vdZ" firstAttribute="leading" secondItem="zAm-wQ-07a" secondAttribute="leading" constant="200" id="dxT-66-dQO"/>
-                                                    <constraint firstAttribute="trailing" secondItem="w7r-bt-vdZ" secondAttribute="trailing" constant="70" id="fL7-My-oDq"/>
                                                     <constraint firstItem="pgG-rF-6fN" firstAttribute="leading" secondItem="n77-JS-46W" secondAttribute="trailing" constant="15" id="kf6-gG-J5O"/>
                                                     <constraint firstItem="n77-JS-46W" firstAttribute="centerY" secondItem="zAm-wQ-07a" secondAttribute="centerY" id="ntt-oo-Yjc"/>
                                                     <constraint firstAttribute="bottom" secondItem="pgG-rF-6fN" secondAttribute="bottom" constant="10" id="rxH-Zu-XgZ"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="circleView" destination="w7r-bt-vdZ" id="8oe-MW-Nrw"/>
                                                     <outlet property="infoLabel" destination="pgG-rF-6fN" id="C2W-Dh-eRf"/>
                                                     <outlet property="nameLabel" destination="3Pm-fz-CoX" id="ziS-so-5VR"/>
                                                     <outlet property="typeImageView" destination="n77-JS-46W" id="a1u-2X-a8q"/>
@@ -226,8 +218,12 @@
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="UVq-hR-ncc" userLabel="Footer View">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="35"/>
                     <subviews>
-                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qPS-nv-qLS" userLabel="Settings Button" customClass="BonButton" customModule="Bon" customModuleProvider="target">
-                            <rect key="frame" x="276" y="7" width="16" height="20"/>
+                        <button translatesAutoresizingMaskIntoConstraints="NO" id="qPS-nv-qLS" userLabel="Settings Button" customClass="BonButton" customModule="Bon" customModuleProvider="target">
+                            <rect key="frame" x="276" y="9" width="16" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="16" id="Czp-vs-3eR"/>
+                                <constraint firstAttribute="height" constant="16" id="ETl-Ij-ohB"/>
+                            </constraints>
                             <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSActionTemplate" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="bRN-aR-3ps">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
@@ -236,8 +232,8 @@
                                 <action selector="onSettingsButton:" target="-2" id="tHg-5O-k2y"/>
                             </connections>
                         </button>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2s3-b7-Kgb">
-                            <rect key="frame" x="9" y="3" width="44" height="28"/>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2s3-b7-Kgb">
+                            <rect key="frame" x="18" y="6" width="32" height="23"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Bon" id="5UB-0a-Zqc">
                                 <font key="font" size="13" name="AvenirNext-DemiBold"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -246,7 +242,11 @@
                         </textField>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="2s3-b7-Kgb" firstAttribute="leading" secondItem="UVq-hR-ncc" secondAttribute="leading" constant="20" id="8uS-0m-cm1"/>
                         <constraint firstAttribute="height" constant="35" id="Rh0-NL-AAM"/>
+                        <constraint firstAttribute="trailing" secondItem="qPS-nv-qLS" secondAttribute="trailing" constant="8" id="Zr6-7w-LdN"/>
+                        <constraint firstItem="qPS-nv-qLS" firstAttribute="centerY" secondItem="UVq-hR-ncc" secondAttribute="centerY" id="fYs-3A-ydE"/>
+                        <constraint firstItem="2s3-b7-Kgb" firstAttribute="centerY" secondItem="UVq-hR-ncc" secondAttribute="centerY" id="pDT-SC-Rad"/>
                     </constraints>
                 </customView>
             </subviews>
