@@ -1,11 +1,15 @@
 # Bon for Mac:
 
-> The elegant network client for [BIT](http://www.bit.edu.cn)
+> Elegant network client for [BIT](http://www.bit.edu.cn)
 
 ## Screenshot
 
 ![img](Image/Login.png)
 ![img](Image/Info.png)
+
+## Downloads
+
+- [0.3.5 beta](https://github.com/Chriskuei/Bon-for-Mac/releases/download/v0.3.5/Bon.app.zip)
 
 ## Features
 
