@@ -2,7 +2,7 @@
 
 > Elegant network client for [BIT](http://www.bit.edu.cn)
 
-## Screenshot
+## Screenshots
 
 ![img](Image/Login.png)
 ![img](Image/Info.png)
