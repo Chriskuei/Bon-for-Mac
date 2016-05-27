@@ -29,9 +29,11 @@ extension NSColor {
         return NSColor(calibratedRed: 153 / 255.0, green: 153 / 255.0, blue: 153 / 255.0, alpha: 1.0)
     }
     
-    class func gankLightGrayColor() -> NSColor {
+    class func bonLightGrayColor() -> NSColor {
         return NSColor(calibratedRed: 204 / 255.0, green: 204 / 255.0, blue: 208 / 255.0, alpha: 1.0)
     }
+    
+    
 
     // Inverse color
     var bon_inverseColor: NSColor {

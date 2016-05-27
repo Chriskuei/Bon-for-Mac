@@ -17,4 +17,10 @@ class BonConfig {
     //static let ScreenWidth: CGFloat = UIScreen.mainScreen().bounds.width
     //static let ScreenHeight: CGFloat = UIScreen.mainScreen().bounds.height
     
+    struct BonNotification {
+        static let GetOnlineInfo = "GetOnlineInfo"
+        static let ShowLoginView = "ShowLoginView"
+        static let HideLoginView = "ShowLoginView"
+    }
+    
 }

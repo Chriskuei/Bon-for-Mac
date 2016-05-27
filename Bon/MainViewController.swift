@@ -8,8 +8,6 @@
 
 import Cocoa
 
-import Cocoa
-
 class MainViewController: NSViewController {
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2)
     let popover = NSPopover()
@@ -36,13 +34,12 @@ class MainViewController: NSViewController {
         }
         eventMonitor?.start()
         
-        BonNetwork.updateLoginState()
-        refreshTimer = NSTimer.every(5.minutes) {
-            switch loginState {
-            case .Online: NSNotificationCenter.defaultCenter().postNotificationName("GetOnlineInfo", object: nil)
-            case .Offline: break
-            }
+        refreshTimer = NSTimer.every(3.minutes) {
+            
+            NSNotificationCenter.defaultCenter().postNotificationName(BonConfig.BonNotification.GetOnlineInfo, object: nil)
+            
         }
+        
     }
     
     override func viewDidLoad() {

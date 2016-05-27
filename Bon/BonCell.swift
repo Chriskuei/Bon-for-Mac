@@ -8,13 +8,14 @@
 
 import Cocoa
 
-import Cocoa
-
 class BonCell: NSTableCellView {
     
     @IBOutlet weak var typeImageView: NSImageView!
     @IBOutlet weak var nameLabel: NSTextField!
     @IBOutlet weak var infoLabel: NSTextField!
+    @IBOutlet weak var circleView: NSView!
+    
+    private let squareWithCircleView: SquareWithCircleView = SquareWithCircleView(frame: CGRectZero)
     
     private var item: BonItem?
     
@@ -26,7 +27,6 @@ class BonCell: NSTableCellView {
         }
     }
     
-    // 创建一个table cell view
     class func view(tableView: NSTableView, owner: AnyObject?, subject: AnyObject?) -> NSView {
         let view = tableView.makeViewWithIdentifier("BonCell", owner: owner) as! BonCell
         
@@ -80,6 +80,12 @@ class BonCell: NSTableCellView {
         
         nameLabel.stringValue = item.nameText
         infoLabel.stringValue = item.infoText
+        //circleView.layer?.backgroundColor = NSColor.bonTintColor().CGColor
+        
+        circleView.addSubview(squareWithCircleView)
+        squareWithCircleView.frame = circleView.bounds
+        //squareWithCircleView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        
         //typeImageView.image = NSImage(named: item.imageType)
     }
     
@@ -105,5 +111,16 @@ class BonCell: NSTableCellView {
     
     override func mouseExited(theEvent: NSEvent) {
         mouseInside = false
+    }
+}
+
+class SquareWithCircleView: NSView{
+    override func drawRect(dirtyRect: NSRect)
+    {
+        let circleFillColor = NSColor.bonTintColor()
+        let circleRect = NSMakeRect(dirtyRect.size.width/4, dirtyRect.size.height/4, dirtyRect.size.width/2, dirtyRect.size.height/2)
+        let cPath: NSBezierPath = NSBezierPath(ovalInRect: circleRect)
+        circleFillColor.set()
+        cPath.fill()
     }
 }

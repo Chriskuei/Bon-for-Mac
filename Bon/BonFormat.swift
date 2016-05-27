@@ -22,8 +22,8 @@ class BonFormat {
     
     class func formatData(byte: Double) -> String {
         if byte > 1024 * 1024 * 1024 {
-            let Gigabyte = String(format: "%.2f", byte.byteToGigabyte()) + "G"
-            return Gigabyte
+            let gigabyte = String(format: "%.2f", byte.byteToGigabyte()) + "G"
+            return gigabyte
         }
         if byte > 1024 * 1024 {
             let megabyte = String(format: "%.2f", byte.byteToMegabyte()) + "M"

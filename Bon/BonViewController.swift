@@ -41,15 +41,9 @@ class BonViewController: NSViewController {
         username = BonUserDefaults.username
         password = BonUserDefaults.password
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(getOnlineInfo), name: "GetOnlineInfo", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(getOnlineInfo), name: BonConfig.BonNotification.GetOnlineInfo, object: nil)
         
-        switch loginState {
-        case .Online:
-            getOnlineInfo()
-            bonLoginView.hidden = true
-        default:
-            break;
-        }
+        getOnlineInfo()
         
     }
     
@@ -70,6 +64,14 @@ class BonViewController: NSViewController {
         SettingsMenuAction.makeSettingsMenu(sender)
     }
 
+    
+    func showLoginView() {
+        bonLoginView.hidden = false
+    }
+    
+    func hideLoginView() {
+        bonLoginView.hidden = true
+    }
     
     // MARK: - Network operation
     
@@ -94,12 +96,15 @@ class BonViewController: NSViewController {
             print(value)
             if value.containsString("login_ok,") {
                 
-                delay(0.5) {
+                delay(1) {
                     self.getOnlineInfo()
                 }
                 delay(1) {
                     self.bonLoginView.show(.LoginSuccess)
                 }
+            } else if value.containsString("You are already online.") {
+                self.forceLogout()
+                self.login()
             } else if value.containsString("Password is error.") {
                 delay(1) {
                     self.bonLoginView.show(.PasswordError)
@@ -142,10 +147,12 @@ class BonViewController: NSViewController {
         BonNetwork.updateLoginState()
         
         switch loginState {
+            
         case .Offline:
             delay(1) {
                 self.bonLoginView.showLoginState(.Offline)
             }
+            
         case .Online:
             let parameters = [
                 "action": "logout",
@@ -172,10 +179,14 @@ class BonViewController: NSViewController {
             "action": "get_online_info"
         ]
         
-        BonNetwork.post(parameters) { (value) in
+        BonNetwork.post(parameters, success: { (value) in
+            
+            NSLog(value)
             if(value == "not_online") {
                 loginState = .Offline
+                self.showLoginView()
             } else {
+                self.hideLoginView()
                 loginState = .Online
                 print(value)
                 let info = value.componentsSeparatedByString(",")
@@ -186,6 +197,9 @@ class BonViewController: NSViewController {
                 self.updateItems()
             }
             
+        }) { (error) in
+            loginState = .Offline
+            self.showLoginView()
         }
     }
     

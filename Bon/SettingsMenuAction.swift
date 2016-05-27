@@ -21,10 +21,10 @@ class SettingsMenuAction {
         moreMenu.addItem(NSMenuItem(title: "Weibo", action: #selector(delegate.openWeibo), keyEquivalent: ""))
         
         menu.addItem(NSMenuItem(title: "Logout", action: #selector(BonNetwork.logout), keyEquivalent: "l"))
-        menu.addItem(NSMenuItem(title: "Start on Mac starup", action: nil, keyEquivalent: "o"))
         let moreMenuItem = NSMenuItem(title: "More", action: nil, keyEquivalent: "")
         menu.addItem(moreMenuItem)
         menu.setSubmenu(moreMenu, forItem: moreMenuItem)
+        menu.addItem(NSMenuItem(title: "Start on Mac starup", action: nil, keyEquivalent: "o"))
         
         menu.addItem(NSMenuItem.separatorItem())
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(delegate.quit), keyEquivalent: "q"))
