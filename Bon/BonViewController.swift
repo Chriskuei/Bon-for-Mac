@@ -113,7 +113,12 @@ class BonViewController: NSViewController {
                 delay(1) {
                     self.bonLoginView.show(.UsernameError)
                 }
-            } else {
+            } else if value.containsString("Arrearage users.") { // E2616: Arrearage users.(已欠费)
+                delay(1) {
+                    self.bonLoginView.show(.InArrearsError)
+                }
+            }
+            else {
                 delay(1) {
                     self.bonLoginView.show(.Error)
                 }

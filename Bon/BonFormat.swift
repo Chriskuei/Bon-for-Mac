@@ -102,7 +102,7 @@ class BonFormat {
         
         let dailyAvailableData = availableData / remainingDaysOfCurrentMonth
         
-        return dailyAvailableData
+        return dailyAvailableData > 0 ? dailyAvailableData : 0
     }
     
 }

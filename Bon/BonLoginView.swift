@@ -12,6 +12,7 @@ enum LogMessage {
     case Loading
     case UsernameError
     case PasswordError
+    case InArrearsError
     case Timeout
     case Error
     case LoginSuccess
@@ -61,6 +62,16 @@ class BonLoginView: NSView {
             loadingIndicator.stopAnimation(nil)
             alertLabel.hidden = false
             alertLabel.stringValue = "Password is incorrect."
+            delay(2) {
+                self.alertLabel.hidden = true;
+            }
+            
+        case .InArrearsError:
+            hidden = false
+            loadingIndicator.hidden = true
+            loadingIndicator.stopAnimation(nil)
+            alertLabel.hidden = false
+            alertLabel.stringValue = "You are in arrears."
             delay(2) {
                 self.alertLabel.hidden = true;
             }
