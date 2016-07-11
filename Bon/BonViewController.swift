@@ -60,10 +60,19 @@ class BonViewController: NSViewController {
         
     }
     
+    @IBAction func switchToPasswordTextField(sender: AnyObject) {
+        usernameTextField.resignFirstResponder()
+        passwordTextField.becomeFirstResponder()
+    }
+    
+    
+    @IBAction func enterKeyPressed(sender: AnyObject) {
+        onLoginButton(sender)
+    }
+    
     @IBAction func onSettingsButton(sender: BonButton) {
         SettingsMenuAction.makeSettingsMenu(sender)
     }
-
     
     func showLoginView() {
         bonLoginView.hidden = false

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8317308D1D33B02D009B0323 /* BonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8317308C1D33B02D009B0323 /* BonTextField.swift */; };
 		832058571CE802AF00BC0FEF /* Double+Bon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832058561CE802AF00BC0FEF /* Double+Bon.swift */; };
 		832058591CE80F7900BC0FEF /* SwiftyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832058581CE80F7900BC0FEF /* SwiftyTimer.swift */; };
 		8320585B1CE8171100BC0FEF /* BonConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8320585A1CE8171100BC0FEF /* BonConfig.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8317308C1D33B02D009B0323 /* BonTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonTextField.swift; sourceTree = "<group>"; };
 		832058561CE802AF00BC0FEF /* Double+Bon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Bon.swift"; sourceTree = "<group>"; };
 		832058581CE80F7900BC0FEF /* SwiftyTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyTimer.swift; sourceTree = "<group>"; };
 		8320585A1CE8171100BC0FEF /* BonConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonConfig.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				83A4B2CF1CE758DE000E83B4 /* BonScrollView.swift */,
 				83A4B2D11CE759A2000E83B4 /* BonCell.swift */,
 				83A4B2D41CE76327000E83B4 /* BonButton.swift */,
+				8317308C1D33B02D009B0323 /* BonTextField.swift */,
 				83A4B2D91CE76C17000E83B4 /* BonLoginView.swift */,
 			);
 			name = Views;
@@ -285,6 +288,7 @@
 				832058601CE8C6D700BC0FEF /* LaunchStarter.swift in Sources */,
 				83A4B2C81CE752FD000E83B4 /* BonViewController.swift in Sources */,
 				832444FE1CDF2D5C0031CFE0 /* BonUserDefaults.swift in Sources */,
+				8317308D1D33B02D009B0323 /* BonTextField.swift in Sources */,
 				832058591CE80F7900BC0FEF /* SwiftyTimer.swift in Sources */,
 				83A4B2D01CE758DE000E83B4 /* BonScrollView.swift in Sources */,
 				83A4B2D51CE76327000E83B4 /* BonButton.swift in Sources */,

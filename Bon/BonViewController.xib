@@ -136,20 +136,23 @@
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bg3-0n-Dyq">
+                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bg3-0n-Dyq" customClass="BonTextField" customModule="Bon" customModuleProvider="target">
                             <rect key="frame" x="101" y="135" width="98" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="22" id="P0F-ZO-Mhu"/>
                             </constraints>
-                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" placeholderString="username" bezelStyle="round" id="CVa-q4-vyn">
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" alignment="left" placeholderString="username" bezelStyle="round" id="CVa-q4-vyn">
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
+                            <connections>
+                                <action selector="switchToPasswordTextField:" target="-2" id="2mL-Qj-1i5"/>
+                            </connections>
                         </textField>
                         <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JU4-Rh-2ep">
                             <rect key="frame" x="101" y="95" width="98" height="22"/>
-                            <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="password" usesSingleLineMode="YES" bezelStyle="round" id="9mN-tY-ayJ">
+                            <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" alignment="left" placeholderString="password" usesSingleLineMode="YES" bezelStyle="round" id="9mN-tY-ayJ">
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -157,6 +160,9 @@
                                     <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                 </allowedInputSourceLocales>
                             </secureTextFieldCell>
+                            <connections>
+                                <action selector="enterKeyPressed:" target="-2" id="zSZ-zr-Syk"/>
+                            </connections>
                         </secureTextField>
                         <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="56N-LU-1yu">
                             <rect key="frame" x="142" y="62" width="16" height="16"/>
