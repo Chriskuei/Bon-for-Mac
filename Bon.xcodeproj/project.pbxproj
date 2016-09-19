@@ -20,7 +20,6 @@
 		832444FE1CDF2D5C0031CFE0 /* BonUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832444FD1CDF2D5C0031CFE0 /* BonUserDefaults.swift */; };
 		832445021CDF2DB80031CFE0 /* BIT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832445001CDF2DB80031CFE0 /* BIT.swift */; };
 		832445031CDF2DB80031CFE0 /* BonNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832445011CDF2DB80031CFE0 /* BonNetwork.swift */; };
-		832445061CDF2FF30031CFE0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 832445051CDF2FF30031CFE0 /* Alamofire.framework */; };
 		8324450B1CDF31570031CFE0 /* BonDelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8324450A1CDF31570031CFE0 /* BonDelay.swift */; };
 		83A4B2C51CE75299000E83B4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4B2C41CE75299000E83B4 /* MainViewController.swift */; };
 		83A4B2C81CE752FD000E83B4 /* BonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4B2C61CE752FD000E83B4 /* BonViewController.swift */; };
@@ -50,8 +49,8 @@
 		832444FD1CDF2D5C0031CFE0 /* BonUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonUserDefaults.swift; sourceTree = "<group>"; };
 		832445001CDF2DB80031CFE0 /* BIT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BIT.swift; sourceTree = "<group>"; };
 		832445011CDF2DB80031CFE0 /* BonNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonNetwork.swift; sourceTree = "<group>"; };
-		832445051CDF2FF30031CFE0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 		8324450A1CDF31570031CFE0 /* BonDelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonDelay.swift; sourceTree = "<group>"; };
+		834E8D1D1D8F86CD00DF4EF2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		83A4B2C41CE75299000E83B4 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		83A4B2C61CE752FD000E83B4 /* BonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonViewController.swift; sourceTree = "<group>"; };
 		83A4B2C71CE752FD000E83B4 /* BonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BonViewController.xib; sourceTree = "<group>"; };
@@ -62,6 +61,7 @@
 		83A4B2D71CE7698D000E83B4 /* BonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonItem.swift; sourceTree = "<group>"; };
 		83A4B2D91CE76C17000E83B4 /* BonLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BonLoginView.swift; sourceTree = "<group>"; };
 		83A4B2DB1CE774FC000E83B4 /* SettingsMenuAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsMenuAction.swift; sourceTree = "<group>"; };
+		83D8A4F71D8F8A7D00C6C3F3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				832445061CDF2FF30031CFE0 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +88,7 @@
 			children = (
 				832444E31CDF17860031CFE0 /* Bon */,
 				832444E21CDF17860031CFE0 /* Products */,
+				834E8D1C1D8F86CD00DF4EF2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,10 +163,18 @@
 		832445081CDF30150031CFE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				832445051CDF2FF30031CFE0 /* Alamofire.framework */,
+				83D8A4F71D8F8A7D00C6C3F3 /* Alamofire.framework */,
 			);
 			name = Frameworks;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		834E8D1C1D8F86CD00DF4EF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				834E8D1D1D8F86CD00DF4EF2 /* Alamofire.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		83A4B2CC1CE756E6000E83B4 /* Extensions */ = {
@@ -218,11 +226,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Chris;
 				TargetAttributes = {
 					832444E01CDF17860031CFE0 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -331,8 +340,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -376,8 +387,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -396,6 +409,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -407,11 +421,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Bon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chriskuei.Bon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -423,11 +439,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Bon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chriskuei.Bon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

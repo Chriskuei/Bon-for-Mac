@@ -10,7 +10,7 @@ import Foundation
 
 class BonFormat {
     
-    class func formatTime(seconds: Int) -> String {
+    class func formatTime(_ seconds: Int) -> String {
         
         let hour = String(format: "%02d", seconds / 3600)
         let minute = String(format: "%02d", (seconds % 3600) / 60)
@@ -20,7 +20,7 @@ class BonFormat {
         return usedTime
     }
     
-    class func formatData(byte: Double) -> String {
+    class func formatData(_ byte: Double) -> String {
         if byte > 1024 * 1024 * 1024 {
             let gigabyte = String(format: "%.2f", byte.byteToGigabyte()) + "G"
             return gigabyte
@@ -37,7 +37,7 @@ class BonFormat {
         }
     }
     
-    class func formatOnlineInfo(info: [String]) -> [String] {
+    class func formatOnlineInfo(_ info: [String]) -> [String] {
         
         let usernameInfo = info[4]
         let usedData = Double(info[0])!
@@ -72,29 +72,29 @@ class BonFormat {
     
     class func getRemainingDaysOfCurrentMonth() -> Double {
         
-        var date = NSDate()
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components([.Day , .Month , .Year], fromDate: date)
+        var date = Date()
+        let calendar = Calendar.current
+        let components = (calendar as NSCalendar).components([.day , .month , .year], from: date)
         
         let year =  components.year
         let month = components.month
         
         let day = components.day
         
-        let dateComponents = NSDateComponents()
+        var dateComponents = DateComponents()
         dateComponents.year = year
         dateComponents.month = month
         
-        date = calendar.dateFromComponents(dateComponents)!
+        date = calendar.date(from: dateComponents)!
         
-        let range = calendar.rangeOfUnit(.Day, inUnit: .Month, forDate: date)
+        let range = (calendar as NSCalendar).range(of: .day, in: .month, for: date)
         let numDays = range.length
         
-        let remainingDaysOfCurrentMonth = numDays - day
+        let remainingDaysOfCurrentMonth = numDays - day!
         return Double(remainingDaysOfCurrentMonth)
     }
     
-    class func getDailyAvailableData(balance: Double, usedData: Double) -> Double {
+    class func getDailyAvailableData(_ balance: Double, usedData: Double) -> Double {
         
         let remainingDaysOfCurrentMonth = getRemainingDaysOfCurrentMonth()
         

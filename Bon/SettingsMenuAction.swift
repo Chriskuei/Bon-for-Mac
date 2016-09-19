@@ -11,8 +11,8 @@ import Foundation
 
 class SettingsMenuAction {
     
-    class func makeSettingsMenu(sender: NSView) {
-        let delegate = NSApplication.sharedApplication().delegate as! MainViewController
+    class func makeSettingsMenu(_ sender: NSView) {
+        let delegate = NSApplication.shared().delegate as! MainViewController
         
         let menu = NSMenu()
         
@@ -23,13 +23,13 @@ class SettingsMenuAction {
         menu.addItem(NSMenuItem(title: "Logout", action: #selector(BonNetwork.logout), keyEquivalent: "l"))
         let moreMenuItem = NSMenuItem(title: "More", action: nil, keyEquivalent: "")
         menu.addItem(moreMenuItem)
-        menu.setSubmenu(moreMenu, forItem: moreMenuItem)
+        menu.setSubmenu(moreMenu, for: moreMenuItem)
         menu.addItem(NSMenuItem(title: "Start on Mac starup", action: nil, keyEquivalent: "o"))
         
-        menu.addItem(NSMenuItem.separatorItem())
+        menu.addItem(NSMenuItem.separator())
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(delegate.quit), keyEquivalent: "q"))
         
-        NSMenu.popUpContextMenu(menu, withEvent: NSApp.currentEvent!, forView: sender)
+        NSMenu.popUpContextMenu(menu, with: NSApp.currentEvent!, for: sender)
     }
     
 }

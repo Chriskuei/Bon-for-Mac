@@ -9,34 +9,34 @@
 import Cocoa
 
 class MainViewController: NSViewController {
-    let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-2)
+    let statusItem = NSStatusBar.system().statusItem(withLength: -2)
     let popover = NSPopover()
     var eventMonitor: EventMonitor?
-    var refreshTimer: NSTimer?
+    var refreshTimer: Timer?
     
     override func awakeFromNib() {
         if let button = statusItem.button {
             let icon = NSImage(named: "icon_status")
-            icon?.template = false
+            icon?.isTemplate = false
             button.image = icon
             button.action = #selector(self.togglePopover(_:))
         }
 
-        popover.behavior = .Transient
+        popover.behavior = .transient
         popover.contentViewController = BonViewController(nibName: "BonViewController", bundle: nil)
         popover.appearance = NSAppearance(named: NSAppearanceNameAqua)
-        popover.behavior = .Transient
+        popover.behavior = .transient
         
-        eventMonitor = EventMonitor(mask: [.LeftMouseDownMask, .RightMouseDownMask]) { [unowned self] event in
-            if self.popover.shown {
+        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [unowned self] event in
+            if self.popover.isShown {
                 self.closePopover(event)
             }
         }
         eventMonitor?.start()
         
-        refreshTimer = NSTimer.every(3.minutes) {
+        refreshTimer = Timer.every(3.minutes) {
             
-            NSNotificationCenter.defaultCenter().postNotificationName(BonConfig.BonNotification.GetOnlineInfo, object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: BonConfig.BonNotification.GetOnlineInfo), object: nil)
             
         }
         
@@ -48,41 +48,41 @@ class MainViewController: NSViewController {
         
     }
     
-    func togglePopover(sender: AnyObject?) {
-        if popover.shown {
+    func togglePopover(_ sender: AnyObject?) {
+        if popover.isShown {
             closePopover(sender)
         } else {
             showPopover(sender)
         }
     }
     
-    func showPopover(sender: AnyObject?) {
+    func showPopover(_ sender: AnyObject?) {
         if let button = statusItem.button {
-            popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSRectEdge.MinY)
+            popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
         }
         
         eventMonitor?.start()
     }
     
-    func closePopover(sender: AnyObject?) {
+    func closePopover(_ sender: AnyObject?) {
         popover.performClose(sender)
         eventMonitor?.stop()
     }
     
     func openGithub() {
         let path = "https://github.com/Chriskuei"
-        let url = NSURL(string: path)!
-        NSWorkspace.sharedWorkspace().openURL(url)
+        let url = URL(string: path)!
+        NSWorkspace.shared().open(url)
     }
     
     func openWeibo() {
         let path = "https://weibo.com/chenjiangui"
-        let url = NSURL(string: path)!
-        NSWorkspace.sharedWorkspace().openURL(url)
+        let url = URL(string: path)!
+        NSWorkspace.shared().open(url)
     }
     
     func quit() {
-        NSApplication.sharedApplication().terminate(self)
+        NSApplication.shared().terminate(self)
     }
 
 }

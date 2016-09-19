@@ -14,7 +14,7 @@ extension NSColor {
     }
     
     class func bonWhiteColor() -> NSColor {
-        return NSColor.whiteColor()
+        return NSColor.white
     }
     
     class func bonHighlightColor() -> NSColor {
@@ -53,7 +53,7 @@ extension NSColor {
         var white: CGFloat = 0
         getWhite(&white, alpha: nil)
         
-        return white > 0.92 ? NSColor.blackColor() : NSColor.whiteColor()
+        return white > 0.92 ? NSColor.black : NSColor.white
     }
 
 }

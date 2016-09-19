@@ -11,13 +11,13 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    func applicationWillFinishLaunching(notification: NSNotification) {
+    func applicationWillFinishLaunching(_ notification: Notification) {
     }
     
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
     }
     
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ aNotification: Notification) {
     }
     
 }

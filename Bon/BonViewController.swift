@@ -36,50 +36,50 @@ class BonViewController: NSViewController {
         super.viewDidLoad()
         
         view.wantsLayer = true
-        view.layer?.backgroundColor = NSColor.bonHighlightColor().CGColor
+        view.layer?.backgroundColor = NSColor.bonHighlightColor().cgColor
         
         username = BonUserDefaults.username
         password = BonUserDefaults.password
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(getOnlineInfo), name: BonConfig.BonNotification.GetOnlineInfo, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getOnlineInfo), name: NSNotification.Name(rawValue: BonConfig.BonNotification.GetOnlineInfo), object: nil)
         
         getOnlineInfo()
         
     }
     
-    @IBAction func onLoginButton(sender: AnyObject) {
+    @IBAction func onLoginButton(_ sender: AnyObject) {
         
-        bonLoginView.show(.Loading)
+        bonLoginView.show(.loading)
         login()
     }
     
-    @IBAction func onLogoutButton(sender: AnyObject) {
+    @IBAction func onLogoutButton(_ sender: AnyObject) {
         
-        bonLoginView.show(.Loading)
+        bonLoginView.show(.loading)
         forceLogout()
         
     }
     
-    @IBAction func switchToPasswordTextField(sender: AnyObject) {
+    @IBAction func switchToPasswordTextField(_ sender: AnyObject) {
         usernameTextField.resignFirstResponder()
         passwordTextField.becomeFirstResponder()
     }
     
     
-    @IBAction func enterKeyPressed(sender: AnyObject) {
+    @IBAction func enterKeyPressed(_ sender: AnyObject) {
         onLoginButton(sender)
     }
     
-    @IBAction func onSettingsButton(sender: BonButton) {
+    @IBAction func onSettingsButton(_ sender: BonButton) {
         SettingsMenuAction.makeSettingsMenu(sender)
     }
     
     func showLoginView() {
-        bonLoginView.hidden = false
+        bonLoginView.isHidden = false
     }
     
     func hideLoginView() {
-        bonLoginView.hidden = true
+        bonLoginView.isHidden = true
     }
     
     // MARK: - Network operation
@@ -103,37 +103,37 @@ class BonViewController: NSViewController {
         
         BonNetwork.post(parameters, success: { (value) in
             print(value)
-            if value.containsString("login_ok,") {
+            if value.contains("login_ok,") {
                 
                 delay(1) {
                     self.getOnlineInfo()
                 }
                 delay(1) {
-                    self.bonLoginView.show(.LoginSuccess)
+                    self.bonLoginView.show(.loginSuccess)
                 }
-            } else if value.containsString("You are already online.") {
+            } else if value.contains("You are already online.") {
                 self.forceLogout()
                 self.login()
-            } else if value.containsString("Password is error.") {
+            } else if value.contains("Password is error.") {
                 delay(1) {
-                    self.bonLoginView.show(.PasswordError)
+                    self.bonLoginView.show(.passwordError)
                 }
-            } else if value.containsString("User not found.") {
+            } else if value.contains("User not found.") {
                 delay(1) {
-                    self.bonLoginView.show(.UsernameError)
+                    self.bonLoginView.show(.usernameError)
                 }
-            } else if value.containsString("Arrearage users.") { // E2616: Arrearage users.(已欠费)
+            } else if value.contains("Arrearage users.") { // E2616: Arrearage users.(已欠费)
                 delay(1) {
-                    self.bonLoginView.show(.InArrearsError)
+                    self.bonLoginView.show(.inArrearsError)
                 }
             }
             else {
                 delay(1) {
-                    self.bonLoginView.show(.Error)
+                    self.bonLoginView.show(.error)
                 }
             }
         }) { (error) in
-            self.bonLoginView.show(.Timeout)
+            self.bonLoginView.show(.timeout)
         }
     }
     
@@ -146,7 +146,7 @@ class BonViewController: NSViewController {
             "action": "auto_logout"
         ]
         BonNetwork.post(parameters) { (value) in
-            self.bonLoginView.hidden = false
+            self.bonLoginView.isHidden = false
         }
     }
     
@@ -178,7 +178,7 @@ class BonViewController: NSViewController {
             BonNetwork.post(parameters) { (value) in
                 print(value)
                 delay(1) {
-                    self.bonLoginView.show(.LogoutSuccess)
+                    self.bonLoginView.show(.logoutSuccess)
                 }
             }
         }
@@ -203,7 +203,7 @@ class BonViewController: NSViewController {
                 self.hideLoginView()
                 loginState = .Online
                 print(value)
-                let info = value.componentsSeparatedByString(",")
+                let info = value.components(separatedBy: ",")
                 self.seconds = Int(info[1])!
                 
                 self.itemsInfo = BonFormat.formatOnlineInfo(info)
@@ -237,11 +237,11 @@ class BonViewController: NSViewController {
 
 extension BonViewController: NSTableViewDataSource {
     
-    func numberOfRowsInTableView(aTableView: NSTableView) -> Int {
+    func numberOfRows(in aTableView: NSTableView) -> Int {
         return items.count
     }
     
-    func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    @objc(tableView:viewForTableColumn:row:) func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         return BonCell.view(tableView, owner: self, subject: items[row])
     }
     
@@ -249,7 +249,7 @@ extension BonViewController: NSTableViewDataSource {
 
 extension BonViewController: NSTableViewDelegate {
     
-    func tableView(tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
         return true
     }
     

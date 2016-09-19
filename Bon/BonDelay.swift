@@ -8,27 +8,24 @@
 
 import Foundation
 
-typealias Task = (cancel : Bool) -> Void
+typealias Task = (_ cancel : Bool) -> Void
 
-func delay(time: NSTimeInterval, task: ()->()) ->  Task? {
+func delay(_ time: TimeInterval, task: @escaping ()->()) ->  Task? {
     
-    func dispatch_later(block: ()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(time * Double(NSEC_PER_SEC))),
-            dispatch_get_main_queue(),
-            block)
+    func dispatch_later(_ block: @escaping ()->()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(time * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC),
+            execute: block)
     }
     
-    var closure: dispatch_block_t? = task
+    var closure: (()->())? = task
     var result: Task?
     
     let delayedClosure: Task = {
         cancel in
         if let internalClosure = closure {
             if (cancel == false) {
-                dispatch_async(dispatch_get_main_queue(), internalClosure);
+                DispatchQueue.main.async(execute: internalClosure);
             }
         }
         closure = nil
@@ -39,15 +36,15 @@ func delay(time: NSTimeInterval, task: ()->()) ->  Task? {
     
     dispatch_later {
         if let delayedClosure = result {
-            delayedClosure(cancel: false)
+            delayedClosure(false)
         }
     }
     
     return result;
 }
 
-func cancel(task: Task?) {
-    task?(cancel: true)
+func cancel(_ task: Task?) {
+    task?(true)
 }
 
 //// Function to create a delay method that is easy to re-use

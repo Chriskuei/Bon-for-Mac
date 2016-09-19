@@ -9,14 +9,14 @@
 import Cocoa
 
 enum LogMessage {
-    case Loading
-    case UsernameError
-    case PasswordError
-    case InArrearsError
-    case Timeout
-    case Error
-    case LoginSuccess
-    case LogoutSuccess
+    case loading
+    case usernameError
+    case passwordError
+    case inArrearsError
+    case timeout
+    case error
+    case loginSuccess
+    case logoutSuccess
 }
 
 class BonLoginView: NSView {
@@ -31,108 +31,108 @@ class BonLoginView: NSView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        loadingIndicator.hidden = true
-        alertLabel.hidden = true
+        loadingIndicator.isHidden = true
+        alertLabel.isHidden = true
         
         wantsLayer = true
-        layer?.backgroundColor = NSColor.whiteColor().CGColor
+        layer?.backgroundColor = NSColor.white.cgColor
     }
     
-    func show(logMessage: LogMessage) {
+    func show(_ logMessage: LogMessage) {
         
         switch logMessage {
-        case .Loading:
-            hidden = false
-            loadingIndicator.hidden = false
+        case .loading:
+            isHidden = false
+            loadingIndicator.isHidden = false
             loadingIndicator.startAnimation(nil)
             
-        case .UsernameError:
-            hidden = false
-            loadingIndicator.hidden = true
+        case .usernameError:
+            isHidden = false
+            loadingIndicator.isHidden = true
             loadingIndicator.stopAnimation(nil)
-            alertLabel.hidden = false
+            alertLabel.isHidden = false
             alertLabel.stringValue = "User not found."
             delay(2) {
-                self.alertLabel.hidden = true;
+                self.alertLabel.isHidden = true;
             }
             
-        case .PasswordError:
-            hidden = false
-            loadingIndicator.hidden = true
+        case .passwordError:
+            isHidden = false
+            loadingIndicator.isHidden = true
             loadingIndicator.stopAnimation(nil)
-            alertLabel.hidden = false
+            alertLabel.isHidden = false
             alertLabel.stringValue = "Password is incorrect."
             delay(2) {
-                self.alertLabel.hidden = true;
+                self.alertLabel.isHidden = true;
             }
             
-        case .InArrearsError:
-            hidden = false
-            loadingIndicator.hidden = true
+        case .inArrearsError:
+            isHidden = false
+            loadingIndicator.isHidden = true
             loadingIndicator.stopAnimation(nil)
-            alertLabel.hidden = false
+            alertLabel.isHidden = false
             alertLabel.stringValue = "You are in arrears."
             delay(2) {
-                self.alertLabel.hidden = true;
+                self.alertLabel.isHidden = true;
             }
             
-        case .Timeout:
-            hidden = false
-            loadingIndicator.hidden = true
+        case .timeout:
+            isHidden = false
+            loadingIndicator.isHidden = true
             loadingIndicator.stopAnimation(nil)
-            alertLabel.hidden = false
+            alertLabel.isHidden = false
             alertLabel.stringValue = "Time out."
             delay(2) {
-                self.alertLabel.hidden = true;
+                self.alertLabel.isHidden = true;
             }
 
             
-        case .Error:
-            hidden = false
-            loadingIndicator.hidden = true
+        case .error:
+            isHidden = false
+            loadingIndicator.isHidden = true
             loadingIndicator.stopAnimation(nil)
-            alertLabel.hidden = false
+            alertLabel.isHidden = false
             alertLabel.stringValue = "Login error."
             delay(2) {
-                self.alertLabel.hidden = true;
+                self.alertLabel.isHidden = true;
             }
             
-        case .LoginSuccess:
-            hidden = true
-            loadingIndicator.hidden = true
+        case .loginSuccess:
+            isHidden = true
+            loadingIndicator.isHidden = true
             loadingIndicator.stopAnimation(nil)
             
-        case .LogoutSuccess:
-            hidden = false
-            loadingIndicator.hidden = true
+        case .logoutSuccess:
+            isHidden = false
+            loadingIndicator.isHidden = true
             loadingIndicator.stopAnimation(nil)
-            alertLabel.hidden = false
+            alertLabel.isHidden = false
             alertLabel.stringValue = "Logout ok."
             delay(2) {
-                self.alertLabel.hidden = true;
+                self.alertLabel.isHidden = true;
             }
         }
     }
     
-    func showLoginState(loginState: LoginState) {
+    func showLoginState(_ loginState: LoginState) {
         switch loginState {
         case .Online:
-            hidden = false
-            loadingIndicator.hidden = true
+            isHidden = false
+            loadingIndicator.isHidden = true
             loadingIndicator.stopAnimation(nil)
-            alertLabel.hidden = false
+            alertLabel.isHidden = false
             alertLabel.stringValue = "You are online now."
             delay(2) {
-                self.alertLabel.hidden = true;
+                self.alertLabel.isHidden = true;
             }
         case .Offline:
-            hidden = false
-            loadingIndicator.hidden = true
+            isHidden = false
+            loadingIndicator.isHidden = true
             loadingIndicator.stopAnimation(nil)
-            alertLabel.hidden = false
+            alertLabel.isHidden = false
             alertLabel.stringValue = "You are offline."
             delay(2) {
-                self.alertLabel.hidden = true;
+                self.alertLabel.isHidden = true;
             }
         }
         

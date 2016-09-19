@@ -17,15 +17,15 @@ class BonNetwork: NSObject {
      *   success: Request success callback function
      */
     
-    static func post(parameters: [String : AnyObject]?, success: (value: String) -> Void) {
+    static func post(_ parameters: [String : String]?, success: @escaping (_ value: String) -> Void) {
         
-        Alamofire.request(.POST, BIT.URL.AuthActionURL, parameters: parameters)
+        Alamofire.request(BIT.URL.AuthActionURL, method: .post, parameters: parameters)
             .responseString{ response in
                 switch response.result {
-                case .Success(let value):
-                    success(value: value)
+                case .success(let value):
+                    success(value)
                     
-                case .Failure(let error):
+                case .failure(let error):
                     print(error)
                 }
         }
@@ -40,15 +40,15 @@ class BonNetwork: NSObject {
      *   fail: Request fail callback function
      */
     
-    static func post(parameters: [String : AnyObject]?, success: (value: String) -> Void, fail: (error : Any) -> Void) {
+    static func post(_ parameters: [String : String]?, success: @escaping (_ value: String) -> Void, fail: @escaping (_ error : Any) -> Void) {
         
-        Alamofire.request(.POST, BIT.URL.AuthActionURL, parameters: parameters)
+        Alamofire.request(BIT.URL.AuthActionURL, method: .post, parameters: parameters)
             .responseString{ response in
                 switch response.result {
-                case .Success(let value):
-                    success(value: value)
+                case .success(let value):
+                    success(value)
                     
-                case .Failure(let error):
+                case .failure(let error):
                     fail(error: error)
                 }
         }
@@ -62,7 +62,7 @@ class BonNetwork: NSObject {
         let parameters = [
             "action": "auto_logout"
         ]
-        BonNetwork.post(parameters) { (value) in
+        BonNetwork.post(parameters as [String : String]?) { (value) in
         }
     }
     
@@ -72,7 +72,7 @@ class BonNetwork: NSObject {
             "action": "get_online_info"
         ]
         
-        post(parameters) { (value) in
+        post(parameters as [String : String]?) { (value) in
             if(value == "not_online") {
                 loginState = .Offline
             } else {

@@ -15,20 +15,20 @@ class BonCell: NSTableCellView {
     @IBOutlet weak var infoLabel: NSTextField!
     //@IBOutlet weak var circleView: NSView!
     
-    private let squareWithCircleView: SquareWithCircleView = SquareWithCircleView(frame: CGRectZero)
+    fileprivate let squareWithCircleView: SquareWithCircleView = SquareWithCircleView(frame: CGRect.zero)
     
-    private var item: BonItem?
+    fileprivate var item: BonItem?
     
-    private let cursor = NSCursor.pointingHandCursor()
-    private var trackingArea: NSTrackingArea?
-    private var mouseInside = false {
+    fileprivate let cursor = NSCursor.pointingHand()
+    fileprivate var trackingArea: NSTrackingArea?
+    fileprivate var mouseInside = false {
         didSet {
             updateUI()
         }
     }
     
-    class func view(tableView: NSTableView, owner: AnyObject?, subject: AnyObject?) -> NSView {
-        let view = tableView.makeViewWithIdentifier("BonCell", owner: owner) as! BonCell
+    class func view(_ tableView: NSTableView, owner: AnyObject?, subject: AnyObject?) -> NSView {
+        let view = tableView.make(withIdentifier: "BonCell", owner: owner) as! BonCell
         
         if let item = subject as? BonItem {
             view.setItem(item)
@@ -42,7 +42,7 @@ class BonCell: NSTableCellView {
         commonInit()
     }
     
-    private func commonInit() {
+    fileprivate func commonInit() {
         wantsLayer = true
         
         typeImageView.wantsLayer = true
@@ -61,7 +61,7 @@ class BonCell: NSTableCellView {
         cursor.set()
     }
     
-    private func setItem(item: BonItem?) {
+    fileprivate func setItem(_ item: BonItem?) {
         guard let item = item else {
             return
         }
@@ -71,12 +71,12 @@ class BonCell: NSTableCellView {
         updateUI()
     }
     
-    private func updateUI() {
+    fileprivate func updateUI() {
         guard let item = item else {
             return
         }
         
-        layer?.backgroundColor = mouseInside ? NSColor.bonHighlightColor().CGColor : NSColor.bonWhiteColor().CGColor
+        layer?.backgroundColor = mouseInside ? NSColor.bonHighlightColor().cgColor : NSColor.bonWhiteColor().cgColor
         
         nameLabel.stringValue = item.nameText
         infoLabel.stringValue = item.infoText
@@ -89,9 +89,9 @@ class BonCell: NSTableCellView {
         //typeImageView.image = NSImage(named: item.imageType)
     }
     
-    private func createTrackingAreaIfNeeded() {
+    fileprivate func createTrackingAreaIfNeeded() {
         if trackingArea == nil {
-            trackingArea = NSTrackingArea(rect: CGRect.zero, options: [NSTrackingAreaOptions.InVisibleRect, NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveAlways], owner: self, userInfo: nil)
+            trackingArea = NSTrackingArea(rect: CGRect.zero, options: [NSTrackingAreaOptions.inVisibleRect, NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
         }
     }
     
@@ -105,21 +105,21 @@ class BonCell: NSTableCellView {
         }
     }
     
-    override func mouseEntered(theEvent: NSEvent) {
+    override func mouseEntered(with theEvent: NSEvent) {
         mouseInside = true
     }
     
-    override func mouseExited(theEvent: NSEvent) {
+    override func mouseExited(with theEvent: NSEvent) {
         mouseInside = false
     }
 }
 
 class SquareWithCircleView: NSView{
-    override func drawRect(dirtyRect: NSRect)
+    override func draw(_ dirtyRect: NSRect)
     {
         let circleFillColor = NSColor.bonTintColor()
         let circleRect = NSMakeRect(dirtyRect.size.width/4, dirtyRect.size.height/4, dirtyRect.size.width/2, dirtyRect.size.height/2)
-        let path: NSBezierPath = NSBezierPath(ovalInRect: circleRect)
+        let path: NSBezierPath = NSBezierPath(ovalIn: circleRect)
         circleFillColor.set()
         path.fill()
     }

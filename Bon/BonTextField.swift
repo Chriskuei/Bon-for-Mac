@@ -11,11 +11,11 @@ import Cocoa
 class BonTextField: NSTextField {
     
     override func becomeFirstResponder() -> Bool {
-        let source = CGEventSourceCreate(CGEventSourceStateID.HIDSystemState)
-        let tapLocation = CGEventTapLocation.CGHIDEventTap
-        let cmdA = CGEventCreateKeyboardEvent(source, 0x00, true)
-        CGEventSetFlags(cmdA, CGEventFlags.MaskCommand)
-        CGEventPost(tapLocation, cmdA)
+        let source = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)
+        let tapLocation = CGEventTapLocation.cghidEventTap
+        let cmdA = CGEvent(keyboardEventSource: source, virtualKey: 0x00, keyDown: true)
+        cmdA?.flags = CGEventFlags.maskCommand
+        cmdA?.post(tap: tapLocation)
         return true
     }
     
