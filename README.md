@@ -10,6 +10,7 @@
 ## Downloads
 
 - [0.3.5 beta](https://github.com/Chriskuei/Bon-for-Mac/releases/download/v0.3.5/Bon.app.zip)
+- [0.4.0 beta](https://github.com/Chriskuei/Bon-for-Mac/releases/download/v0.4.0/Bon.app.zip)
 
 ## Features
 
@@ -27,9 +28,9 @@
 
 ## Requirements
 
-- Swift 2.2
-- Xcode 7.3
-- OS X 10.11
+- Swift 3.0+
+- Xcode 8.0
+- OS X 10.11+
 
 ## FAQ
 
