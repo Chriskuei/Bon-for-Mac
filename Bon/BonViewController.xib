@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="BonViewController" customModule="Bon" customModuleProvider="target">
@@ -24,17 +24,17 @@
                 <scrollView borderType="none" horizontalLineScroll="62" horizontalPageScroll="10" verticalLineScroll="62" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sl4-oh-8ey" customClass="BonScrollView" customModule="Bon" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="35" width="300" height="310"/>
                     <clipView key="contentView" id="VOF-or-ak5">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="310"/>
+                        <rect key="frame" x="0.0" y="0.0" width="289" height="310"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" columnSelection="YES" multipleSelection="NO" rowHeight="62" rowSizeStyle="automatic" viewBased="YES" id="FyE-cu-j26">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="310"/>
+                                <rect key="frame" x="0.0" y="0.0" width="289" height="310"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
                                 <color key="gridColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
-                                    <tableColumn identifier="BonTableColumn" editable="NO" width="300" minWidth="100" maxWidth="465" id="h6N-J8-lmS">
+                                    <tableColumn identifier="BonTableColumn" editable="NO" width="289" minWidth="100" maxWidth="465" id="h6N-J8-lmS">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -48,7 +48,7 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView identifier="BonCell" id="zAm-wQ-07a" customClass="BonCell" customModule="Bon" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="62"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="289" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n77-JS-46W" userLabel="Bon Image View">
@@ -60,7 +60,7 @@
                                                         <imageCell key="cell" enabled="NO" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="icon_status" id="0Hl-hd-ZdP"/>
                                                     </imageView>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" preferredMaxLayoutWidth="369" translatesAutoresizingMaskIntoConstraints="NO" id="3Pm-fz-CoX">
-                                                        <rect key="frame" x="62" y="35" width="237" height="17"/>
+                                                        <rect key="frame" x="62" y="35" width="226" height="17"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="dX2-7t-05d"/>
                                                         </constraints>
@@ -71,7 +71,7 @@
                                                         </textFieldCell>
                                                     </textField>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" preferredMaxLayoutWidth="369" translatesAutoresizingMaskIntoConstraints="NO" id="pgG-rF-6fN">
-                                                        <rect key="frame" x="62" y="10" width="237" height="17"/>
+                                                        <rect key="frame" x="62" y="10" width="226" height="17"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" truncatesLastVisibleLine="YES" enabled="NO" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="left" title="Desc" usesSingleLineMode="YES" id="3nv-AR-HIH" userLabel="Info">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -106,16 +106,18 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </clipView>
                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="uZt-Ua-CHO">
                         <rect key="frame" x="-100" y="-100" width="430" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="Pif-gN-fBn">
-                        <rect key="frame" x="284" y="0.0" width="16" height="310"/>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" controlSize="mini" horizontal="NO" id="Pif-gN-fBn">
+                        <rect key="frame" x="289" y="0.0" width="11" height="310"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="autohidesScrollers" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </scrollView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="kmg-a3-AKd" userLabel="Login View" customClass="BonLoginView" customModule="Bon" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="35" width="300" height="310"/>
