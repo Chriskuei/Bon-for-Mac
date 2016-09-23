@@ -116,7 +116,7 @@ class BonLoginView: NSView {
     
     func showLoginState(_ loginState: LoginState) {
         switch loginState {
-        case .Online:
+        case .online:
             isHidden = false
             loadingIndicator.isHidden = true
             loadingIndicator.stopAnimation(nil)
@@ -125,7 +125,7 @@ class BonLoginView: NSView {
             delay(2) {
                 self.alertLabel.isHidden = true;
             }
-        case .Offline:
+        case .offline:
             isHidden = false
             loadingIndicator.isHidden = true
             loadingIndicator.stopAnimation(nil)

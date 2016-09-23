@@ -11,12 +11,10 @@ import Alamofire
 
 class BonNetwork: NSObject {
     
-    /**
-     *   post function
-     *   parameters: JSON
-     *   success: Request success callback function
-     */
-    
+    /// post function
+    ///
+    /// - parameter parameters: JSON
+    /// - parameter success:    Request success callback function
     static func post(_ parameters: [String : String]?, success: @escaping (_ value: String) -> Void) {
         
         Alamofire.request(BIT.URL.AuthActionURL, method: .post, parameters: parameters)
@@ -32,14 +30,12 @@ class BonNetwork: NSObject {
         
         
     }
-
-    /**
-     *   post function
-     *   parameters: JSON
-     *   success: Request success callback function
-     *   fail: Request fail callback function
-     */
     
+    /// post function
+    ///
+    /// - parameter parameters: JSON
+    /// - parameter success:    Request success callback function
+    /// - parameter fail:       Request failure callback function
     static func post(_ parameters: [String : String]?, success: @escaping (_ value: String) -> Void, fail: @escaping (_ error : Any) -> Void) {
         
         Alamofire.request(BIT.URL.AuthActionURL, method: .post, parameters: parameters)
@@ -74,9 +70,9 @@ class BonNetwork: NSObject {
         
         post(parameters as [String : String]?) { (value) in
             if(value == "not_online") {
-                loginState = .Offline
+                loginState = .offline
             } else {
-                loginState = .Online
+                loginState = .online
             }
             
         }

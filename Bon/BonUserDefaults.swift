@@ -8,7 +8,7 @@
 
 import Foundation
 
-var loginState: LoginState = .Offline
+var loginState: LoginState = .offline
 
 let usernameKey = "username"
 let passwordKey = "password"
@@ -24,7 +24,6 @@ class BonUserDefaults {
         
         defaults.setValue(username, forKey: usernameKey)
         defaults.setValue(password, forKey: passwordKey)
-        defaults.synchronize()
         
         defaults.synchronize()
     }

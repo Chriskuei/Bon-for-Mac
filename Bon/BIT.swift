@@ -9,8 +9,8 @@
 import Foundation
 
 public enum LoginState: String, CustomStringConvertible {
-    case Online = "Online"
-    case Offline = "Offline"
+    case online = "online"
+    case offline = "offline"
     
     public var description: String {
         return self.rawValue
@@ -22,60 +22,5 @@ class BIT {
     struct URL {
         static let AuthActionURL = "http://10.0.0.55:801/include/auth_action.php"
         static let HelpCenter = "http://10.0.0.55:8800"
-        static let DoLoginURL = "http://10.0.0.55/cgi-bin/do_login"
-        static let KeepLiveURL = "http://10.0.0.55/cgi-bin/keeplive"
-        static let DoLogoutURL = "http://10.0.0.55/cgi-bin/do_logout"
-        static let ForceLogoutURL = "http://10.0.0.55/cgi-bin/force_logout"
-        static let UserOnlineURL = "http://10.0.0.55/user_online.php"
-        static let RadUserInfoURL = "http://10.0.0.55/cgi-bin/rad_user_info"
-        static let SrunPortalURL = "http://10.0.0.55/cgi-bin/srun_portal"
     }
-    
-    static let LoginErrorMessage: [String: String] = {
-        
-        var loginErrorMessage = Dictionary<String, String>()
-        loginErrorMessage["user_tab_error"] = "The certification program does not start"
-        loginErrorMessage["username_error"] = "Username incorrect"
-        loginErrorMessage["non_auth_error"] = "You can directly access without authentication"
-        loginErrorMessage["password_error"] = "Password incorect"
-        loginErrorMessage["status_error"] = "The user is in arrears, please recharge as soon as possible"
-        loginErrorMessage["available_error"] = "The user has been disabled"
-        loginErrorMessage["ip_exist_error"] = "Your IP is not offline, please wait 2 minutes and try again"
-        loginErrorMessage["usernum_error"] = "The number of users has reached the upper limit"
-        loginErrorMessage["online_num_error"] = "The number of logined accounts have exceeded. \n if the suspect account theft, please contact the webmaster"
-        loginErrorMessage["mode_error"] = "System has prohibited the use of WEB way to log in, please use the client"
-        loginErrorMessage["time_policy_error"] = "Connection is not allowed at the time of current session"
-        loginErrorMessage["flux_error"] = "Your flow is overdrawn"
-        loginErrorMessage["minutes_error"] = "Your time is overdrawn"
-        loginErrorMessage["ip_error"] = "Your IP address is not valid"
-        loginErrorMessage["mac_error"] = "Your MAC address is not valid"
-        loginErrorMessage["sync_error"] = "Your information has been modified, waiting for synchronization, please try again after 2 minutes"
-        
-        return loginErrorMessage
-    }()
-    
-    static let LogoutMessage: [String: String] = {
-        
-        var logoutMessage = Dictionary<String, String>()
-        logoutMessage["user_tab_error"] = "The certification program does not start"
-        logoutMessage["username_error"] = "Username incorrect"
-        logoutMessage["password_error"] = "Password incorrect"
-        logoutMessage["logout_ok"] = "Logout success, please wait 1 minutes and login in。"
-        logoutMessage["logout_error"] = "You are offline"
-        logoutMessage["uid_error"] = "You are offline"
-        
-        return logoutMessage
-    }()
-    
-    static let KeepLiveMessage: [String: String] = {
-        var keepLiveMessage = Dictionary<String, String>()
-        
-        keepLiveMessage["status_error"] = "The user is in arrears, please recharge as soon as possible"
-        keepLiveMessage["available_error"] = "The user has been disabled"
-        keepLiveMessage["drop_error"] = "You have been forced offline"
-        keepLiveMessage["flux_error"] = "Your flow is overdrawn"
-        keepLiveMessage["minutes_error"] = "Your time is overdrawn"
-        
-        return keepLiveMessage
-    }()
 }

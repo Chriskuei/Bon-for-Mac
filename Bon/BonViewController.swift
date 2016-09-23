@@ -36,12 +36,12 @@ class BonViewController: NSViewController {
         super.viewDidLoad()
         
         view.wantsLayer = true
-        view.layer?.backgroundColor = NSColor.bonHighlightColor().cgColor
+        view.layer?.backgroundColor = NSColor.bonHighlight().cgColor
         
         username = BonUserDefaults.username
         password = BonUserDefaults.password
         
-        NotificationCenter.default.addObserver(self, selector: #selector(getOnlineInfo), name: NSNotification.Name(rawValue: BonConfig.BonNotification.GetOnlineInfo), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getOnlineInfo), name: Notification.Name(rawValue: BonConfig.BonNotification.GetOnlineInfo), object: nil)
         
         getOnlineInfo()
         
@@ -162,12 +162,12 @@ class BonViewController: NSViewController {
         
         switch loginState {
             
-        case .Offline:
+        case .offline:
             delay(1) {
-                self.bonLoginView.showLoginState(.Offline)
+                self.bonLoginView.showLoginState(.offline)
             }
             
-        case .Online:
+        case .online:
             let parameters = [
                 "action": "logout",
                 "username": username,
@@ -197,11 +197,11 @@ class BonViewController: NSViewController {
             
             NSLog(value)
             if(value == "not_online") {
-                loginState = .Offline
+                loginState = .offline
                 self.showLoginView()
             } else {
                 self.hideLoginView()
-                loginState = .Online
+                loginState = .online
                 print(value)
                 let info = value.components(separatedBy: ",")
                 self.seconds = Int(info[1])!
@@ -212,7 +212,7 @@ class BonViewController: NSViewController {
             }
             
         }) { (error) in
-            loginState = .Offline
+            loginState = .offline
             self.showLoginView()
         }
     }

@@ -76,7 +76,7 @@ class BonCell: NSTableCellView {
             return
         }
         
-        layer?.backgroundColor = mouseInside ? NSColor.bonHighlightColor().cgColor : NSColor.bonWhiteColor().cgColor
+        layer?.backgroundColor = mouseInside ? NSColor.bonHighlight().cgColor : NSColor.bonWhite().cgColor
         
         nameLabel.stringValue = item.nameText
         infoLabel.stringValue = item.infoText
@@ -117,7 +117,7 @@ class BonCell: NSTableCellView {
 class SquareWithCircleView: NSView{
     override func draw(_ dirtyRect: NSRect)
     {
-        let circleFillColor = NSColor.bonTintColor()
+        let circleFillColor = NSColor.bonTint()
         let circleRect = NSMakeRect(dirtyRect.size.width/4, dirtyRect.size.height/4, dirtyRect.size.width/2, dirtyRect.size.height/2)
         let path: NSBezierPath = NSBezierPath(ovalIn: circleRect)
         circleFillColor.set()
