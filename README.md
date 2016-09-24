@@ -29,8 +29,8 @@
 ## Requirements
 
 - Swift 3.0+
-- Xcode 8.0
-- OS X 10.11+
+- Xcode 8.0+
+- macOS 10.12+
 
 ## FAQ
 
