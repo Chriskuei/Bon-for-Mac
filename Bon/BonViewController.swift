@@ -111,9 +111,13 @@ class BonViewController: NSViewController {
                 delay(1) {
                     self.bonLoginView.show(.loginSuccess)
                 }
-            } else if value.contains("You are already online.") {
-                self.forceLogout()
-                self.login()
+            } else if value.contains("You are already online.") || value.contains("IP has been online, please logout.") {
+                delay(1) {
+                    self.getOnlineInfo()
+                }
+                delay(1) {
+                    self.bonLoginView.show(.loginSuccess)
+                }
             } else if value.contains("Password is error.") {
                 delay(1) {
                     self.bonLoginView.show(.passwordError)

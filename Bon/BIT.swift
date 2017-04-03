@@ -20,7 +20,7 @@ public enum LoginState: String, CustomStringConvertible {
 class BIT {
     
     struct URL {
-        static let AuthActionURL = "http://10.0.0.55:801/include/auth_action.php"
+        static let AuthActionURL = "http://10.0.0.55/include/auth_action.php"
         static let HelpCenter = "http://10.0.0.55:8800"
     }
 }
