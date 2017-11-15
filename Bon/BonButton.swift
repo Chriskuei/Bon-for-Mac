@@ -10,7 +10,7 @@ import Cocoa
 
 class BonButton: NSButton {
     
-    fileprivate let cursor = NSCursor.pointingHand()
+    fileprivate let cursor = NSCursor.pointingHand
     fileprivate var normalStateImage: NSImage?
     fileprivate var highlightedStateImage: NSImage?
     fileprivate var trackingArea: NSTrackingArea?
@@ -41,8 +41,8 @@ class BonButton: NSButton {
     func setImages(_ normalImage: String, highlitedImage: String) {
         self.setButtonType(.momentaryChange)
         
-        normalStateImage = NSImage(named: normalImage)
-        highlightedStateImage = NSImage(named: highlitedImage)
+        normalStateImage = NSImage(named: NSImage.Name(rawValue: normalImage))
+        highlightedStateImage = NSImage(named: NSImage.Name(rawValue: highlitedImage))
     }
     
     func resetTrackingArea() {
@@ -55,7 +55,7 @@ class BonButton: NSButton {
     
     fileprivate func createTrackingAreaIfNeeded() {
         if trackingArea == nil {
-            trackingArea = NSTrackingArea(rect: CGRect.zero, options: [.inVisibleRect, .mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
+            trackingArea = NSTrackingArea(rect: CGRect.zero, options: [NSTrackingArea.Options.inVisibleRect, NSTrackingArea.Options.mouseEnteredAndExited, NSTrackingArea.Options.activeAlways], owner: self, userInfo: nil)
         }
     }
     

@@ -9,25 +9,25 @@
 import Cocoa
 
 class MainViewController: NSViewController {
-    let statusItem = NSStatusBar.system().statusItem(withLength: -2)
+    let statusItem = NSStatusBar.system.statusItem(withLength: -2)
     let popover = NSPopover()
     var eventMonitor: EventMonitor?
     var refreshTimer: Timer?
     
     override func awakeFromNib() {
         if let button = statusItem.button {
-            let icon = NSImage(named: "icon_status")
+            let icon = NSImage(named: NSImage.Name(rawValue: "icon_status"))
             icon?.isTemplate = false
             button.image = icon
             button.action = #selector(self.togglePopover(_:))
         }
 
         popover.behavior = .transient
-        popover.contentViewController = BonViewController(nibName: "BonViewController", bundle: nil)
-        popover.appearance = NSAppearance(named: NSAppearanceNameAqua)
+        popover.contentViewController = BonViewController(nibName: NSNib.Name(rawValue: "BonViewController"), bundle: nil)
+        popover.appearance = NSAppearance(named: NSAppearance.Name.aqua)
         popover.behavior = .transient
         
-        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [unowned self] event in
+        eventMonitor = EventMonitor(mask: [NSEvent.EventTypeMask.leftMouseDown, NSEvent.EventTypeMask.rightMouseDown]) { [unowned self] event in
             if self.popover.isShown {
                 self.closePopover(event)
             }
@@ -48,7 +48,7 @@ class MainViewController: NSViewController {
         
     }
     
-    func togglePopover(_ sender: AnyObject?) {
+    @objc func togglePopover(_ sender: AnyObject?) {
         if popover.isShown {
             closePopover(sender)
         } else {
@@ -69,20 +69,20 @@ class MainViewController: NSViewController {
         eventMonitor?.stop()
     }
     
-    func openGithub() {
+    @objc func openGithub() {
         let path = "https://github.com/Chriskuei"
         let url = URL(string: path)!
-        NSWorkspace.shared().open(url)
+        NSWorkspace.shared.open(url)
     }
     
-    func openWeibo() {
+    @objc func openWeibo() {
         let path = "https://weibo.com/chenjiangui"
         let url = URL(string: path)!
-        NSWorkspace.shared().open(url)
+        NSWorkspace.shared.open(url)
     }
     
-    func quit() {
-        NSApplication.shared().terminate(self)
+    @objc func quit() {
+        NSApplication.shared.terminate(self)
     }
 
 }

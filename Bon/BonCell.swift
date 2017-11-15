@@ -19,7 +19,7 @@ class BonCell: NSTableCellView {
     
     fileprivate var item: BonItem?
     
-    fileprivate let cursor = NSCursor.pointingHand()
+    fileprivate let cursor = NSCursor.pointingHand
     fileprivate var trackingArea: NSTrackingArea?
     fileprivate var mouseInside = false {
         didSet {
@@ -28,7 +28,7 @@ class BonCell: NSTableCellView {
     }
     
     class func view(_ tableView: NSTableView, owner: AnyObject?, subject: AnyObject?) -> NSView {
-        let view = tableView.make(withIdentifier: "BonCell", owner: owner) as! BonCell
+        let view = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "BonCell"), owner: owner) as! BonCell
         
         if let item = subject as? BonItem {
             view.setItem(item)
@@ -91,7 +91,7 @@ class BonCell: NSTableCellView {
     
     fileprivate func createTrackingAreaIfNeeded() {
         if trackingArea == nil {
-            trackingArea = NSTrackingArea(rect: CGRect.zero, options: [NSTrackingAreaOptions.inVisibleRect, NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
+            trackingArea = NSTrackingArea(rect: CGRect.zero, options: [NSTrackingArea.Options.inVisibleRect, NSTrackingArea.Options.mouseEnteredAndExited, NSTrackingArea.Options.activeAlways], owner: self, userInfo: nil)
         }
     }
     

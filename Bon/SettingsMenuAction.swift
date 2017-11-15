@@ -12,7 +12,7 @@ import Foundation
 class SettingsMenuAction {
     
     class func makeSettingsMenu(_ sender: NSView) {
-        let delegate = NSApplication.shared().delegate as! MainViewController
+        let delegate = NSApplication.shared.delegate as! MainViewController
         
         let menu = NSMenu()
         

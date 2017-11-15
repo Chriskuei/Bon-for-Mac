@@ -191,7 +191,7 @@ class BonViewController: NSViewController {
     
     // MARK : - get online info
     
-    func getOnlineInfo() {
+    @objc func getOnlineInfo() {
         
         let parameters = [
             "action": "get_online_info"

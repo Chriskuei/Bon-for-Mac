@@ -45,7 +45,7 @@ class BonNetwork: NSObject {
                     success(value)
                     
                 case .failure(let error):
-                    fail(error: error)
+                    fail(error)
                 }
         }
         
@@ -53,7 +53,7 @@ class BonNetwork: NSObject {
     }
     
     
-    static func logout() {
+    @objc static func logout() {
         
         let parameters = [
             "action": "auto_logout"

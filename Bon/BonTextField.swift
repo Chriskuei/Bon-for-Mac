@@ -15,8 +15,8 @@ class BonTextField: NSTextField {
 extension BonTextField {
     
     override func performKeyEquivalent(with event: NSEvent) -> Bool {
-        if event.type == NSEventType.keyDown {
-            if (event.modifierFlags.rawValue & NSEventModifierFlags.deviceIndependentFlagsMask.rawValue) == NSEventModifierFlags.command.rawValue {
+        if event.type == NSEvent.EventType.keyDown {
+            if (event.modifierFlags.rawValue & NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue) == NSEvent.ModifierFlags.command.rawValue {
                 switch event.charactersIgnoringModifiers! {
                 case "x":
                     if NSApp.sendAction(#selector(NSText.cut(_:)), to:nil, from:self) { return true }
@@ -32,7 +32,7 @@ extension BonTextField {
                     break
                 }
             }
-            else if (event.modifierFlags.rawValue & NSEventModifierFlags.deviceIndependentFlagsMask.rawValue) == NSEventModifierFlags.command.rawValue | NSEventModifierFlags.shift.rawValue {
+            else if (event.modifierFlags.rawValue & NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue) == NSEvent.ModifierFlags.command.rawValue | NSEvent.ModifierFlags.shift.rawValue {
                 if event.charactersIgnoringModifiers == "Z" {
                     if NSApp.sendAction(Selector(("redo:")), to:nil, from:self) { return true }
                 }
